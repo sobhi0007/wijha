@@ -1,8 +1,8 @@
 ## Wejha Official Desription
 
-**Created By :** Mahmoud Anwar
-**Email :** Engsahaly@gmail.com
-**Phone :** +2-01000166099
+**Created By :** Mohamed Sobhi
+**Email :** mohaamed.sobhii@gmail.com
+**Phone :** +2-01010701303
 
 This is the main readme file for wejha website
 
@@ -11,7 +11,7 @@ This is the main readme file for wejha website
 To get started, clone this repository.
 
 ```
-git clone https://github.com/engsahaly/wejha.git
+git clone https://github.com/sobhi0007/wijha.git
 ```
 
 Next, copy your `.env.example` file as `.env` and configure your Database connection.
