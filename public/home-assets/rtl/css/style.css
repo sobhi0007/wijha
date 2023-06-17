@@ -270,9 +270,16 @@ body {
    }
 
    .title-hr{
-    width: 10%;
+    width: 5%;
     height: 3px !important;
     background: linear-gradient(to right, #0f7fae, #1cbcb4) !important;
     opacity: 1 !important;
 }
  
+
+.heart{
+  left: 90% !important;
+  font-size: xx-large;
+  top: 10% !important;
+  z-index: 9999;
+}

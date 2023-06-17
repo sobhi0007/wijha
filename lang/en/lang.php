@@ -769,5 +769,7 @@ return [
     'register_instead'            => 'Register Instead ',
     'forgot_password'             => 'Forgot Password',
     'forgot_password_quote_owner' => 'Let us know your email address and we will email you a password reset link',
-    
+    'explore_now'=>'Explore now ',
+    'in'=>'in',
+    'wishlist'=>'Wishlist'
 ];

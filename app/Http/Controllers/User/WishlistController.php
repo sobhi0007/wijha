@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Unit;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ReservationController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $bookings = auth()->user()->bookings()->with('unit')->latest()->paginate();
         $wishlists = auth()->user()->wishlist()->pluck('unit_id')->toArray();
-        return view('profile.reservations',['bookings'=>$bookings,'wishlists'=>$wishlists]);
+        $units = Unit::whereIn('code',$wishlists)->latest()->paginate();
+        return view('profile.wishlsit',['units'=>$units]);
     }
 
 }

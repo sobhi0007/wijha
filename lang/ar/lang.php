@@ -748,5 +748,7 @@ return [
     'reset_password'              => 'تغيير كلمة المرور',
     'approval'                    => 'حالة الموافقة',
     'declined'                    => 'مرفوض',
-
+    'explore_now'=>'اسكتشف الاّن ',
+    'in'=>'في',
+    'wishlist'=>' قائمة المفضّلات'
     ];
