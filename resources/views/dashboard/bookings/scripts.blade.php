@@ -263,10 +263,10 @@
                 },
                 dataType: "json",
                 success: function(data) {
-                    $("#district_id").find('option').not(':first').remove();
+                    $("#unit_id").find('option').not(':first').remove();
                     $.each(data['success'], function(key, value) {
-                        $('#district_id').append(
-                            `<option value="${value.id}">${value.name}</option>`
+                        $('#unit_id').append(
+                            `<option value="${value.id}">${value.code} | ${value.title}</option>`
                         );
                     });
                 },

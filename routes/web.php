@@ -46,9 +46,9 @@ use App\Http\Controllers\Owner\OwnerProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/gmap',function(){
+
+Route::get('/gmap', function () {
     return view('gmap');
-    
 });
 
 // Route::get('/reservations', function () {
@@ -62,7 +62,6 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('reservations', ReservationController::class)->names('reservations');
-
 });
 
 require __DIR__ . '/auth.php';
@@ -75,6 +74,8 @@ require __DIR__ . '/auth.php';
 |
 */
 Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::post('/getDistrictsByCity', [DistrictController::class, 'getByCity'])->name('districts.getByCity');
 
     Route::middleware(['admin'])->group(function () {
 
@@ -102,9 +103,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::resource('bookings', BookingController::class);
         });
 
-
         ##------------------------------------------------------- UNITS MODULE
         Route::controller(UnitController::class)->group(function () {
+            Route::post('getUnitsByCity', [UnitController::class, 'getUnitsByCity'])->name('getUnitsByCity');
             Route::resource('units', UnitController::class);
         });
 
@@ -155,7 +156,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         ##------------------------------------------------------- DISTRICTS MODULE
         Route::controller(DistrictController::class)->group(function () {
-            Route::post('/getDistrictsByCity', [DistrictController::class, 'getByCity'])->name('districts.getByCity');
             Route::resource('districts', DistrictController::class)->except('show');
         });
 

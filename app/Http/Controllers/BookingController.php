@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Time;
 use App\Models\Unit;
 use App\Models\Booking;
@@ -94,6 +95,7 @@ class BookingController extends Controller
      */
     public function create()
     {
+        $cities = City::all(['id', 'name_en', 'name_ar']);
         return view(self::DIRECTORY . ".create", get_defined_vars())->with('directory', self::DIRECTORY);
     }
 
@@ -105,8 +107,9 @@ class BookingController extends Controller
      */
     public function store(StoreBookingRequest $request)
     {
+
         $data = $request->validated();
-        $unit = Unit::where('code', $data['unit_id'])->first();
+        $unit = Unit::find($data['unit_id']);
         if (!$unit) throw ValidationException::withMessages(['unit_id' => __('messages.no_units_found')]);
         $data['unit_id'] = $unit->id;
         // check if there are any bookings on the same unit and same dates 

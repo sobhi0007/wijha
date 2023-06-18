@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'service_charge'=>'تكلفه الخدمه',
-    'reserve'=>'احجز الان',
-    'host_Information'=>'معلومات عن المستضيف',
-    'information'=>'معلومات عن المكان',
-    'hosted_by'=>'الاستضافه من خلال',
+    'service_charge' => 'تكلفه الخدمه',
+    'reserve' => 'احجز الان',
+    'host_Information' => 'معلومات عن المستضيف',
+    'information' => 'معلومات عن المكان',
+    'hosted_by' => 'الاستضافه من خلال',
     /*
     | PUBLIC NAMES
     */
@@ -41,8 +41,8 @@ return [
     'copyright_text' => 'الحقوق محفوظة ',
     'update'         => 'تعديل',
 
-  
-    'login_title'        => 'تسجيل دخول المديرين',
+
+    'admin_login_title'        => 'تسجيل دخول المديرين',
     'login_title_client' => 'تسجيل دخول العملاء',
     'welcome_back'       => 'مرحبا مجددا !',
     'login_quote'        => 'قم بتسجيل الدخول الى لوحة تحكم المديرين',
@@ -54,7 +54,21 @@ return [
     'logout'             => 'تسجيل الخروج',
     'crafted_by'         => 'تمت البرمجة',
     'by'                 => 'بواسطة',
-   
+
+    'login_quote_owner'           => 'تسجيل الدخول الى لوحة تحكم المالك',
+    'login_title'                 => 'تسجيل دخول المالك',
+    'register'                    => 'تسجيل الدخول',
+    'register_quote'              => 'تسجيل حساب مالك جديد',
+    'register_btn'                => 'تسجيل',
+    'already_registered'          => 'مسجل بالفعل ؟',
+    'register_instead'            => 'حساب جديد ',
+    'forgot_password'             => 'اعادة تعيين كلمة المرور',
+    'forgot_password_quote_owner' => 'قم باضافة البريد الالكترونى وسيتم ارسال ايميل لك',
+    'send_password_reset_link'    => 'ارسال رابط التغيير',
+    'login_instead'               => 'تسجيل الدخول',
+    'reset_password'              => 'تغيير كلمة المرور',
+    'approval'                    => 'حالة الموافقة',
+    'declined'                    => 'مرفوض',
 
     /*
     | Home MODULE
@@ -67,20 +81,20 @@ return [
 
     'sginin_btn'  => 'تسجيل دخول ',
     'sginup_btn'  => 'إنشاء حساب ',
-    
-    'search'=> 'بحث',
-    'serach_location'=>'ابحث عن المدينه او المنطقه',
-    'places'=>'اماكن',
-    'places_to_stay' =>'اماكن مميزه للاقامه',
+
+    'search' => 'بحث',
+    'serach_location' => 'ابحث عن المدينه او المنطقه',
+    'places' => 'اماكن',
+    'places_to_stay' => 'اماكن مميزه للاقامه',
     'section_descriptions' => 'أوصاف الأقسام',
 
     'night'   => 'ليله',
     'nights'   => 'ليال',
 
-    'search_not_found'=>'لا توجد نتايج لهذا البحث',
+    'search_not_found' => 'لا توجد نتايج لهذا البحث',
 
-    'stays_in'=>'الاماكن في ',
-    'unit_count'=>'عدد الوحدات',
+    'stays_in' => 'الاماكن في ',
+    'unit_count' => 'عدد الوحدات',
     /*
     | ADMINS MODULE
     */
@@ -356,7 +370,7 @@ return [
     'users'                 => 'المستخدمين',
     'new_user'              => 'مستخدم جديد؟',
     'join_now'              => 'انضم الان',
-    'alread_registerd'      =>'مسجل بالفعل في وجهه ؟',
+    'alread_registerd'      => 'مسجل بالفعل في وجهه ؟',
     'add_new_user'          => 'اصافة مستخدم جديد',
     'edit_user'             => 'تعديل بيانات مستخدم',
     'delete_user'           => 'حذف بيانات المستخدم',
@@ -561,7 +575,7 @@ return [
     'units_divider'   => 'ادارةالوحدات',
     'units'           => 'الوحدات',
     'unit'            => 'الوحدة',
-    'properties_found'=>'مكان إقامة',
+    'properties_found' => 'مكان إقامة',
     'add_new_unit'    => 'اضافة وحدة جديدة',
     'edit_unit'       => 'تعديل بيانات الوحدة',
     'delete_unit'     => 'حذف الوحدة',
@@ -681,13 +695,13 @@ return [
     'pay_with'         => 'ادفع عن طريق',
     'paypal'           => 'باي بال',
     'creditcard'       => 'بطاقة إئتمان',
-    'card_number'=>' رقم البطاقه',
-    'card_holder'=> 'اسم حامل البطاقه',
-    'expiration_date'=>'تاريخ الانتهاء',
-    'cvc'=>'رمز التحقق من البطاقة (CVC)',
-    'message_for_author'=>'رسالة للمستضيف',
-    'talk_about_yourself'=>'اكتب بعض الجمل عن نفسك .',
-    'price_details'=>'السعر بالتفصيل',
+    'card_number' => ' رقم البطاقه',
+    'card_holder' => 'اسم حامل البطاقه',
+    'expiration_date' => 'تاريخ الانتهاء',
+    'cvc' => 'رمز التحقق من البطاقة (CVC)',
+    'message_for_author' => 'رسالة للمستضيف',
+    'talk_about_yourself' => 'اكتب بعض الجمل عن نفسك .',
+    'price_details' => 'السعر بالتفصيل',
     /*
     | REPORTS MODULE
     */
@@ -701,39 +715,39 @@ return [
     'welcome' => 'مرحبا !',
 
     'see_more' => 'شاهد المزيد',
-    'login_failed'=> 'البريد الالكتروني او كلمه السر غير صحيح.',
-    'all_rights_reserved'=>'جميع الحقوق محفوظه ©',
-    'customer_service'=>'خدمه العملاء',
-    'contact_us'=>'تواصل معنا',
-    'number_of_bathrooms'=>'عدد الحمامات',
-    'select_number_of_bathrooms'=>'اختر عدد الحمامات',
-    'number_of_bedrooms'=>'عدد غرف النوم',
-    'select_number_of_bedrooms'=>'اختر عدد غرف النوم',
-    'try_again'=>'حاول مجددا',
-    'payment_fail_message'=>'عذرًا، لم تتم عملية الدفع بنجاح. يرجى المحاولة مرة أخرى أو الاتصال بالدعم للحصول على المساعدة.',
-    'payment_fail'=>'تمّ رفض عملية الدفع',
-    'payment_success_message'=>'شكرًا لك على عملية الدفع. تم تأكيد حجزك.',
-    'payment_success'=>'تم إتمام العملية بنجاح',
-    'booked_success_title'=>'تم حجز الوحده بنجاح',
-    'booked_success_body'=>'تم استكمال عملية حجز الوحدة بنجاح في ',
-    'thanks'=>' شكرًا لاختيارك خدمتنا.',
-    'paid'=>'تم الدفع',
-    "payment_method"=>'طريقه الدفع',
-    'amount'=>'قيمه',
-    'bathrooms_number'=>'عدد الحمامات',
-    'select_bathrooms_number'=>'اختر عدد الحمامات',
-    'bedrooms_number'=>'عدد الغرف',
-    'select_bedrooms_number'=>'اختر عدد الغرف',
-    'list_bedrooms_not_selected'=>'اختيار عدد الغرف ليس محدد',
+    'login_failed' => 'البريد الالكتروني او كلمه السر غير صحيح.',
+    'all_rights_reserved' => 'جميع الحقوق محفوظه ©',
+    'customer_service' => 'خدمه العملاء',
+    'contact_us' => 'تواصل معنا',
+    'number_of_bathrooms' => 'عدد الحمامات',
+    'select_number_of_bathrooms' => 'اختر عدد الحمامات',
+    'number_of_bedrooms' => 'عدد غرف النوم',
+    'select_number_of_bedrooms' => 'اختر عدد غرف النوم',
+    'try_again' => 'حاول مجددا',
+    'payment_fail_message' => 'عذرًا، لم تتم عملية الدفع بنجاح. يرجى المحاولة مرة أخرى أو الاتصال بالدعم للحصول على المساعدة.',
+    'payment_fail' => 'تمّ رفض عملية الدفع',
+    'payment_success_message' => 'شكرًا لك على عملية الدفع. تم تأكيد حجزك.',
+    'payment_success' => 'تم إتمام العملية بنجاح',
+    'booked_success_title' => 'تم حجز الوحده بنجاح',
+    'booked_success_body' => 'تم استكمال عملية حجز الوحدة بنجاح في ',
+    'thanks' => ' شكرًا لاختيارك خدمتنا.',
+    'paid' => 'تم الدفع',
+    "payment_method" => 'طريقه الدفع',
+    'amount' => 'قيمه',
+    'bathrooms_number' => 'عدد الحمامات',
+    'select_bathrooms_number' => 'اختر عدد الحمامات',
+    'bedrooms_number' => 'عدد الغرف',
+    'select_bedrooms_number' => 'اختر عدد الغرف',
+    'list_bedrooms_not_selected' => 'اختيار عدد الغرف ليس محدد',
     'list_types_not_selected'   => 'لم يتم اختيارانواع الوحدات',
     'list_badges_not_selected'   => 'لم يتم اختيار فئات الاوسمه ',
     'list_categories_not_selected'   => 'لم يتم اختيار فئات التصنيف ',
-    'list_persons_not_selected'=> 'لم يتم اختيار تصنيفات الاشخاص  ',
-    'list_capacities_not_selected'=>'لم يتم اختيار تصنيف العدد',
-    'apply'=>' تطبيق',
-    'filter_appartement'=>'التصنيفات',
-    'reset'=>'إعادة الضبط',
-    'reservations'=>'الحجوزات',
+    'list_persons_not_selected' => 'لم يتم اختيار تصنيفات الاشخاص  ',
+    'list_capacities_not_selected' => 'لم يتم اختيار تصنيف العدد',
+    'apply' => ' تطبيق',
+    'filter_appartement' => 'التصنيفات',
+    'reset' => 'إعادة الضبط',
+    'reservations' => 'الحجوزات',
     'login_quote_owner'           => 'تسجيل الدخول الى لوحة تحكم المالك',
     'login_title'                 => 'تسجيل دخول المالك',
     'register'                    => 'تسجيل الدخول',
@@ -749,4 +763,19 @@ return [
     'approval'                    => 'حالة الموافقة',
     'declined'                    => 'مرفوض',
 
-    ];
+    /*
+    | API MODULE
+    */
+    'api_created'             => 'تم الانشاء بنجاح',
+    'api_updated'             => 'تم التعديل بنجاح',
+    'api_deleted'             => 'تم الحذف بنجاح',
+    'api_unauthorized'        => 'غير مسموح باجراء هذا العمل',
+    'api_unauthenticated'     => 'غير مصدق لاجراء هذا العمل',
+    'api_ok'                  => 'تم',
+    'api_notfound'            => 'غير موجود',
+    'api_unprocessableEntity' => 'تحقيق غير صحيح',
+
+
+    'select_unit' => 'اختر الوحدة',
+
+];

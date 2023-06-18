@@ -43,7 +43,23 @@
 
                         <div class="form-group col-12 col-md-4">
                             <label class="form-label">{{ __('lang.user') }}</label>
-                            <p class="border form-control">{{ $booking->user?->name ?? '--' }}</p>
+                            <p class="border form-control">
+                                {{ $booking->user_id == null ? $booking->user_name : $booking->user?->name }}
+                            </p>
+                        </div>
+
+                        <div class="form-group col-12 col-md-4">
+                            <label class="form-label">{{ __('lang.email') }}</label>
+                            <p class="border form-control">
+                                {{ $booking->user_id == null ? $booking->email : $booking->user?->email }}
+                            </p>
+                        </div>
+
+                        <div class="form-group col-12 col-md-4">
+                            <label class="form-label">{{ __('lang.phone') }}</label>
+                            <p class="border form-control">
+                                {{ $booking->user_id == null ? $booking->phone : '--' }}
+                            </p>
                         </div>
 
                         <div class="form-group col-12 col-md-4">
@@ -59,19 +75,19 @@
                         </div>
 
                         <div class="form-group col-12 col-md-4">
-                            <label class="form-label">{{ __('lang.original_price') }} {{ __('lang.currency') }}</label>
+                            <label class="form-label">{{ __('lang.original_price') }} {{ lang('currency') }}</label>
                             <p class="border form-control">{{ $booking->original_price ?? '--' }}
                             </p>
                         </div>
 
                         <div class="form-group col-12 col-md-4">
-                            <label class="form-label">{{ __('lang.vat') }} {{ __('lang.currency') }}</label>
+                            <label class="form-label">{{ __('lang.vat') }} {{ lang('currency') }}</label>
                             <p class="border form-control">{{ $booking->vat ?? '--' }}
                             </p>
                         </div>
 
                         <div class="form-group col-12 col-md-4">
-                            <label class="form-label">{{ __('lang.total_price') }} {{ __('lang.currency') }}</label>
+                            <label class="form-label">{{ __('lang.total_price') }} {{ lang('currency') }}</label>
                             <p class="border form-control">{{ $booking->total_price ?? '--' }}
                             </p>
                         </div>

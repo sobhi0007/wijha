@@ -61,6 +61,19 @@
                             </div>
 
                             <div class="form-group col-12 col-md-4">
+                                <label class="form-label">{{ __('lang.email') }}</label>
+                                <input type="text" class="border form-control"
+                                    value="{{ $booking->user_id == null ? $booking->user_name : $booking->user?->name }}"
+                                    disabled>
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
+                                <label class="form-label">{{ __('lang.phone') }}</label>
+                                <input type="text" class="border form-control"
+                                    value="{{ $booking->user_id == null ? $booking->phone : '--' }}" disabled>
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.from') }}</label>
                                 <input type="text" class="border form-control"
                                     value="{{ date('d/m/Y', strtotime($booking->from_datetime)) }}" disabled>
@@ -73,18 +86,18 @@
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.original_price') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.original_price') }} {{ lang('currency') }}</label>
                                 <input type="text" class="border form-control" value="{{ $booking->original_price }}"
                                     disabled>
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.vat') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.vat') }} {{ lang('currency') }}</label>
                                 <input type="text" class="border form-control" value="{{ $booking->vat }}" disabled>
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.total_price') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.total_price') }} {{ lang('currency') }}</label>
                                 <input type="text" class="border form-control" value="{{ $booking->total_price }}"
                                     disabled>
                             </div>

@@ -188,4 +188,13 @@ class UnitController extends Controller
         $unit->delete();
         return response()->json(['success' => __('messages.deleted')]);
     }
+
+    /**
+     * Get units by city 
+     */
+    public function getUnitsByCity(Request $request)
+    {
+        $units = Unit::where('city_id', $request->city_id)->get(['id', 'code', 'title']);
+        return response()->json(['success' => $units]);
+    }
 }

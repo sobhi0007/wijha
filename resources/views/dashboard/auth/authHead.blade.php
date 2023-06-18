@@ -12,7 +12,7 @@ if (LaravelLocalization::getCurrentLocale() == 'ar') {
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>{{ __('lang.login_title') }}</title>
+    <title>{{ __('lang.admin_login_title') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset("assets$lang") }}/css/simplebar.css">

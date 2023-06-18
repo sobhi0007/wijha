@@ -34,9 +34,27 @@
                             </div>
 
                             <div class="form-group col-12 col-md-4">
+                                <label class="form-label">{{ __('lang.city') }}</label>
+                                <div name="city_id">
+                                    <select class="form-control select2" id="city_id" name="city_id"
+                                        data-url="{{ route('admin.getUnitsByCity') }}">
+                                        <option value="" selected>{{ __('lang.select_city') }}</option>
+                                        @foreach ($cities as $item)
+                                            <option value="{{ $item->id }}">
+                                                {{ LaravelLocalization::getCurrentLocale() == 'ar' ? $item->name_ar : $item->name_en }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.unit') }}</label>
-                                <input type="text" class="border form-control" name="unit_id"
-                                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.unit') }}...">
+                                <div name="unit_id">
+                                    <select class="form-control select2" name="unit_id" id="unit_id">
+                                        <option value="" selected>{{ __('lang.select_unit') }}</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group col-12 col-md-4">
@@ -58,6 +76,18 @@
                             </div>
 
                             <div class="form-group col-12 col-md-4">
+                                <label class="form-label">{{ __('lang.email') }}</label>
+                                <input type="text" class="border form-control" name="email"
+                                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.email') }}...">
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
+                                <label class="form-label">{{ __('lang.phone') }}</label>
+                                <input type="text" class="border form-control" name="phone"
+                                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.phone') }}...">
+                            </div>
+
+                            <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.from') }}</label>
                                 <input type="date" class="border form-control" name="from_datetime"
                                     placeholder="{{ __('lang.please_enter') }} {{ __('lang.from_datetime') }}...">
@@ -70,19 +100,19 @@
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.original_price') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.original_price') }} {{ lang('currency') }}</label>
                                 <input type="number" class="border form-control" name="original_price" min='0'
                                     placeholder="{{ __('lang.please_enter') }} {{ __('lang.original_price') }}...">
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.vat') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.vat') }} {{ lang('currency') }}</label>
                                 <input type="number" class="border form-control" name="vat" min='0'
                                     placeholder="{{ __('lang.please_enter') }} {{ __('lang.vat') }}...">
                             </div>
 
                             <div class="form-group col-12 col-md-4">
-                                <label class="form-label">{{ __('lang.total_price') }} {{ __('lang.currency') }}</label>
+                                <label class="form-label">{{ __('lang.total_price') }} {{ lang('currency') }}</label>
                                 <input type="number" class="border form-control" name="total_price" min='0'
                                     placeholder="{{ __('lang.please_enter') }} {{ __('lang.total_price') }}...">
                             </div>
