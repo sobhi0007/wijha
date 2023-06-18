@@ -2,11 +2,17 @@
 
 namespace App\Http\Requests\Owner;
 
+use App\Traits\ApiResponse;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class UpdateOwnerProfileRequest extends FormRequest
 {
+    use ApiResponse;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -17,6 +23,14 @@ class UpdateOwnerProfileRequest extends FormRequest
         return true;
     }
 
+    protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        if ($this->is('api/*')) {
+            $response = new Response(['error' => $validator->errors()->all()], 422);
+            throw new ValidationException($validator, $response);
+        }
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +38,7 @@ class UpdateOwnerProfileRequest extends FormRequest
      */
     public function rules()
     {
-        $id = Auth::guard('owner')->user()->id;
+        $id = $this->expectsJson() ? $this->user()?->id : Auth::guard('owner')->user()?->id;
         return [
             'name'                 => 'sometimes|required|string',
             'email'                => 'sometimes|required|unique:users,email,' . $id,

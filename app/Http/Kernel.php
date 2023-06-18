@@ -67,6 +67,9 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'owner' => \App\Http\Middleware\Owner::class,
         'sanctum' => \App\Http\Middleware\Sanctum::class,
+        'OwnerApiLocalization' => \App\Http\Middleware\OwnerApiLocalization::class,
+        'OwnerApiSecretKey' => \App\Http\Middleware\OwnerApiSecretKey::class,
+        'OwnerAddTokenToHeaders' => \App\Http\Middleware\OwnerAddTokenToHeaders::class,
         /**** OTHER MIDDLEWARE ****/
         'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,

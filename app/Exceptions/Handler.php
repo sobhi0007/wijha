@@ -2,11 +2,19 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Traits\ApiResponse;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
+
+    use ApiResponse;
+
     /**
      * A list of exception types with their corresponding custom log levels.
      *
@@ -45,6 +53,27 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+        $this->renderable(function (ModelNotFoundException $e, $request) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return $this->notFoundResponse();
+            }
+        });
+
+        $this->renderable(function (AuthenticationException $e, $request) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return $this->unAuthenticatedResponse();
+            }
+        });
+        $this->renderable(function (ValidationException $e, $request) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return $this->validationErrorResponse($e->errors());
+            }
+        });
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return $this->errorResponse(400, null, 'The requested link does not exist');
+            }
         });
     }
 }
