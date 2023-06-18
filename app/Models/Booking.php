@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Enums\BookingStatus;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Booking extends Model
 {
@@ -110,10 +111,12 @@ class Booking extends Model
 
 
     ##--------------------------------- SCOPES
-    // public function scopeActive($query)
-    // {
-    //     $query->where('status', Status::ACTIVE);
-    // }
+    public function scopeOwner($query)
+    {
+        $query->whereHas('unit', function ($q) {
+            $q->where('user_id', Auth::guard('owner')->user()->id);
+        });
+    }
 
 
     ##--------------------------------- ACCESSORS & MUTATORS

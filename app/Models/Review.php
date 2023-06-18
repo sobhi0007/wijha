@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Enums\ReviewStatus;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Review extends Model
 {
@@ -85,10 +86,19 @@ class Review extends Model
 
 
     ##--------------------------------- SCOPES
-    // public function scopeActive($query)
-    // {
-    //     $query->where('status', Status::ACTIVE);
-    // }
+    public function scopeOwner($query)
+    {
+        $query->whereHas('booking', function ($q) {
+            $q->whereHas('unit', function ($qu) {
+                $qu->where('user_id', Auth::guard('owner')->user()->id);
+            });
+        });
+    }
+
+    public function scopePublished($query)
+    {
+        $query->where('status', ReviewStatus::ACTIVE);
+    }
 
 
     ##--------------------------------- ACCESSORS & MUTATORS

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\MoyasarPaymentStatus;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -85,10 +86,14 @@ class Payment extends Model
 
 
     ##--------------------------------- SCOPES
-    // public function scopeActive($query)
-    // {
-    //     $query->where('status', Status::ACTIVE);
-    // }
+    public function scopeOwner($query)
+    {
+        $query->whereHas('booking', function ($q) {
+            $q->whereHas('unit', function ($qu) {
+                $qu->where('user_id', Auth::guard('owner')->user()->id);
+            });
+        });
+    }
 
 
     ##--------------------------------- ACCESSORS & MUTATORS

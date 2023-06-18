@@ -4,13 +4,15 @@ namespace App\Models;
 
 use App\Enums\UnitStatus;
 use App\Enums\UnitActivation;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\Image\Manipulations;
+
 class Unit extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
@@ -27,7 +29,7 @@ class Unit extends Model implements HasMedia
                     ->addMediaConversion('thumb')
                     ->format('webp')
                     ->height(50);
-                    $this
+                $this
                     ->addMediaConversion('responsive')
                     ->format('webp')
                     ->fit(Manipulations::FIT_STRETCH, 600, 400);
@@ -200,6 +202,10 @@ class Unit extends Model implements HasMedia
         $query->where('status', UnitStatus::PUBLISHED);
     }
 
+    public function scopeOwner($query)
+    {
+        $query->where('user_id', Auth::guard('owner')->user()->id);
+    }
 
     ##--------------------------------- ACCESSORS & MUTATORS
 }
