@@ -4,14 +4,14 @@ namespace App\Enums;
 
 enum UserType: int
 {
-    case USER = 0; 
+    case USER = 0;
     case OWNER = 1;
 
     public function color(): string
     {
         return match ($this) {
             self::USER  => 'bg-warning',
-            self::OWNER => 'bg-succes',
+            self::OWNER => 'bg-success',
         };
     }
 
