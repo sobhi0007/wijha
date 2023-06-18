@@ -7,6 +7,21 @@
 
     {{-- MODIFICATIONS FROM HERE --}}
     <div class="row">
+        @if ($user->type == App\Enums\UserType::OWNER)
+            <div class="form-group col-12 col-md-12">
+                <label class="form-label">{{ __('lang.approval') }}</label>
+                <div name="approval">
+                    <select class="form-control select2 bg-light" name="approval">
+                        <option value="" selected>{{ __('lang.select_status') }}</option>
+                        @foreach (App\Enums\UserApproval::cases() as $item)
+                            <option value="{{ $item->value }}" @selected($user->approval == $item)>
+                                {{ $item->lang() }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        @endif
+
         <div class="form-group col-12 col-md-6">
             <label class="form-label">{{ __('lang.name') }}</label>
             <input type="text" class="border form-control" name="name"

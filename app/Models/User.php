@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\UserType;
 use App\Models\Wishlist;
+use App\Enums\UserApproval;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -25,7 +26,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'fcm_token'
+        'fcm_token',
+        'type',
+        'approval',
     ];
 
     /**
@@ -45,6 +48,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'type' => UserType::class,
+        'approval' => UserApproval::class,
     ];
 
     /**
@@ -104,7 +109,4 @@ class User extends Authenticatable
             },
         );
     }
-
-
-
 }
