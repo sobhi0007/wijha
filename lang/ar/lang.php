@@ -750,7 +750,7 @@ return [
     'reservations' => 'الحجوزات',
     'login_quote_owner'           => 'تسجيل الدخول الى لوحة تحكم المالك',
     'login_title'                 => 'تسجيل دخول المالك',
-    'register'                    => 'تسجيل الدخول',
+    'register'                    => 'تسجيل حساب جديد',
     'register_quote'              => 'تسجيل حساب مالك جديد',
     'register_btn'                => 'تسجيل',
     'already_registered'          => 'مسجل بالفعل ؟',
