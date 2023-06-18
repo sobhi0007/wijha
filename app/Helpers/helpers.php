@@ -30,7 +30,7 @@ function lang($lang)
 {
     if ($lang != null) {
         echo "<span class='text-danger font-size-11'>(";
-        echo __("langapp()->getLocale()");
+        echo __("lang.$lang");
         echo ")</span>";
     }
 }

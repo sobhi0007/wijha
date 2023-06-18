@@ -56,14 +56,15 @@
 
                             <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.user') }}</label>
-                                <input type="text" class="border form-control" value="{{ $booking->user?->name }}"
+                                <input type="text" class="border form-control"
+                                    value="{{ $booking->user_id == null ? $booking->user_name : $booking->user?->name }}"
                                     disabled>
                             </div>
 
                             <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.email') }}</label>
                                 <input type="text" class="border form-control"
-                                    value="{{ $booking->user_id == null ? $booking->user_name : $booking->user?->name }}"
+                                    value="{{ $booking->user_id == null ? $booking->email : $booking->user?->email }}"
                                     disabled>
                             </div>
 

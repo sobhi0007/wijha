@@ -588,13 +588,13 @@ return [
     /*
     | UNITS STATUSES
     */
-    'review'        => 'قيد المراجعة',
-    'published'     => 'منشور',
-    'suspended'     => 'محظور',
-    'active'        => 'فعال',
-    'inactive'      => 'غير فعال',
-    'available'     => 'متاح',
-    'not_available' => 'غير متاح',
+    'review'               => 'قيد المراجعة',
+    'published'            => 'منشور',
+    'suspended'            => 'محظور',
+    'active'               => 'فعال',
+    'inactive'             => 'غير فعال',
+    'available'            => 'متاح',
+    'not_available'        => 'غير متاح',
     'code'                 => 'الكود',
     'title'                => 'العنوان',
     'user'                 => 'مستخدم',

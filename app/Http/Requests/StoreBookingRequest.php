@@ -32,8 +32,11 @@ class StoreBookingRequest extends FormRequest
             'vat'              => 'nullable|numeric|min:0',
             'total_price'      => 'required|numeric|min:0',
             'status'           => 'required',
-            'user_name'             => 'required',
+            'user_name'        => 'required',
             'unit_id'          => 'required',
+            'city_id'          => 'required',
+            'phone'            => 'nullable',
+            'email'            => 'nullable|email',
         ];
     }
 
@@ -52,8 +55,11 @@ class StoreBookingRequest extends FormRequest
             'vat'              => __('lang.vat'),
             'total_price'      => __('lang.total_price'),
             'status'           => __('lang.status'),
-            'user_name'             => __('lang.user'),
+            'user_name'        => __('lang.user'),
             'unit_id'          => __('lang.unit'),
+            'city_id'          => __('lang.city'),
+            'phone'            => __('lang.phone'),
+            'email'            => __('lang.email'),
         ];
     }
 }
