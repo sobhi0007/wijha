@@ -138,8 +138,8 @@
                         <li>
                             <a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fa fa-user text-main mx-2" aria-hidden="true"></i>  {{__('lang.profile')}}</a>
                         </li>
-                        <li class=""><a class="dropdown-item" href="{{route('reservation')}}"><i class="fa-solid fa-building text-main mx-2"></i> {{__('lang.reservations')}}</a> </li>
-                        <li class=""><a class="dropdown-item" href="{{route('wishlist')}}"><i class="fa-solid fa-heart text-main mx-2"></i> {{__('lang.wishlist')}}</a> </li>
+                        <li class=""><a class="dropdown-item" href="{{route('user.reservations')}}"><i class="fa-solid fa-building text-main mx-2"></i> {{__('lang.reservations')}}</a> </li>
+                        <li class=""><a class="dropdown-item" href="{{route('user.wishlist')}}"><i class="fa-solid fa-heart text-main mx-2"></i> {{__('lang.wishlist')}}</a> </li>
                       
                         <li>
                             <a href="{{ route('logout') }}" class="dropdown-item text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

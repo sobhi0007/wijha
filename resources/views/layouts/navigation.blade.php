@@ -11,8 +11,8 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto text-left">
-            <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('reservation')}}">{{__('lang.reservations')}}</a> </li>
-            <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('wishlist')}}">{{__('lang.wishlist')}}</a> </li>
+            <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('user.reservations')}}">{{__('lang.reservations')}}</a> </li>
+            <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('user.wishlist')}}">{{__('lang.wishlist')}}</a> </li>
             <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('faq')}}">{{__('lang.faqs')}}</a> </li>
             <li class="nav-item dropdown  mx-3"><a class="nav-link line fs-7  active  " href="{{route('message.index')}}">{{__('lang.contact_us')}}</a> </li>
         </ul>

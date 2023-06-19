@@ -9,7 +9,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\UnitController;
 use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\User\WishlistController;
-use App\Http\Controllers\User\ReservationController;
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/unit/{code}', [UnitController::class, 'show'])->name('unit.show');
@@ -17,7 +17,7 @@ Route::get('/searchresults', [MapController::class, 'FindUnitsBelongsToSearch'])
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/contact-us', [MessageController::class, 'index'])->name('message.index');
 Route::post('/contact-us', [MessageController::class, 'store'])->name('message.store');
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+Route::get('/reservation', [App\Http\Controllers\Home\ReservationController::class, 'index'])->name('reservation');
 
 Route::get('/pay', [PayController::class, 'store'])->name('pay.store');
 
@@ -42,8 +42,8 @@ Route::post('/send-notification', [HomeController::class, 'sendNotification'])->
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations');
-    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+    Route::get('/user/reservations', [App\Http\Controllers\User\ReservationController::class, 'index'])->name('user.reservations');
+    Route::get('/user/wishlist', [WishlistController::class, 'index'])->name('user.wishlist');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -13,6 +13,7 @@ use App\Notifications\Reservation;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Notification;
 
 
 
@@ -64,12 +65,8 @@ class PayController extends Controller
 
       // $userSessionId = Session::getId();
       $this->sendFCMNotification( __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks'));
-      auth()->user()->notify( new Reservation($unit , auth()->user()));
-      // foreach (Session::all() as $key => $value) {
-      //     if ($key !== $userSessionId) {
-      //         Session::forget($key);
-      //     }
-      // }
+      auth()->user()->notify( new Reservation($unit , auth()->user() , __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks')));
+     
       return redirect()->to(  URL::temporarySignedRoute(
         'home.paymentSuccess', now()->addMinutes(1))
     );

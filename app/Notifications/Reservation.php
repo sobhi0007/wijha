@@ -12,17 +12,19 @@ class Reservation extends Notification
 
     private $unit;
     private $user;
+    private $title;
+    private $body;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($unit,$user)
+    public function __construct($unit,$user,$title,$body)
     {
-      
-        
-        $this->unit = $unit;
-         $this->user = $user;
+            $this->unit = $unit;
+            $this->user = $user;
+            $this->title = $title;
+            $this->body = $body;
     }
 
     /**
@@ -33,7 +35,7 @@ class Reservation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -63,7 +65,8 @@ class Reservation extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+           'title' => $this->title,
+           'body '=> $this->body,
         ];
     }
 }

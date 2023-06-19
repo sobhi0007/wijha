@@ -30,7 +30,7 @@ class Confirmation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -59,7 +59,7 @@ class Confirmation extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'title'=>'confirmed' 
         ];
     }
 }
