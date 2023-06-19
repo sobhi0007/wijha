@@ -27,7 +27,10 @@ return [
     'duplicated'             => 'These values already exists!',
     'no_units_found'         => 'No Units found related to this unit code!',
     'no_available_slots'     => 'this unit doesn\'t available at these times',
-
+    'no_bookings_title'               => 'You currently don\'t have any bookings.',
+    'no_bookings_body'                => ' It\'s the perfect time to start exploring our amazing selection of apartments. Find your dream accommodation and make your first booking today! Our friendly team is here to assist you every step of the way. Happy apartment hunting!',
+    'no_wishlist_title'               => 'Oh no! Your wishlist is currently empty !',
+    'no_wishlist_body'                => ' Don\'t worry, we have a wide selection of amazing units waiting just for you. Explore our collection of available units and start adding your favorites to the wishlist. Your dream unit is just a click away!',
     'owner_registered'   => 'Registered Successfully ... Please wait till admin approval',
     'owner_not_approved' => 'This account hasn\'t been approved yet .. Please contact customer service',
     'no_owner_found' => 'We can\'t find a user with that email address',

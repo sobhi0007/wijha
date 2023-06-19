@@ -18,58 +18,58 @@
 
     @if (Lang::locale() == 'ar')
     
-    <!-- ar bootstrap css styles -->
-    <link rel="stylesheet" href="{{asset('home-assets/rtl/css/bootstrap.rtl.min.css')}}"  crossorigin="anonymous">
+        <!-- ar bootstrap css styles -->
+        <link rel="stylesheet" href="{{asset('home-assets/rtl/css/bootstrap.rtl.min.css')}}"  crossorigin="anonymous">
 
-    <!-- swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <!-- swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
-    <!-- fontawesome icons -->
-    <link href="{{asset('home-assets/rtl/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
-    <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
-    <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
-    <!-- animation style -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- animation script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- css style -->
-    <link rel="stylesheet" href="{{asset('home-assets/rtl/css/style.css')}}">
-    <style>
-        .mySwiper {
-            overflow: initial;
-        }
+        <!-- fontawesome icons -->
+        <link href="{{asset('home-assets/rtl/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
+        <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
+        <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
+        <!-- animation style -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- animation script -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- css style -->
+        <link rel="stylesheet" href="{{asset('home-assets/rtl/css/style.css')}}">
+        <style>
+            .mySwiper {
+                overflow: initial;
+            }
 
-        .owl-carousel,
-        .bx-wrapper { direction: ltr; }
-        .owl-carousel .owl-item { direction: rtl; }
-    </style>
-    <!-- calender -->
-    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <link href="{{asset('home-assets/rtl/theme/css/t-datepicker.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('home-assets/rtl/theme/css/themes/t-datepicker-orange.css')}}" rel="stylesheet" type="text/css">
+            .owl-carousel,
+            .bx-wrapper { direction: ltr; }
+            .owl-carousel .owl-item { direction: rtl; }
+        </style>
+        <!-- calender -->
+        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('home-assets/rtl/theme/css/t-datepicker.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('home-assets/rtl/theme/css/themes/t-datepicker-orange.css')}}" rel="stylesheet" type="text/css">
 
     @else
     
-    <!-- bootstrap css styles -->
-    <link rel="stylesheet" href="{{asset('home-assets/ltr/css/bootstrap.min.css')}}">
-    <!-- swiper -->
-    <link rel="stylesheet" href="{{asset('home-assets/ltr/css/swiper-bundle.min.css')}}" />
-    <!-- css style -->
-    <link rel="stylesheet" href="{{asset('home-assets/ltr/css/style.css')}}">
-    <!-- fontawesome icons -->
-    <link href="{{asset('home-assets/rtl/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
-    <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
-    <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
-    <!-- animation style -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- animation script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- calender -->
-    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <link href="{{asset('home-assets/ltr/theme/css/t-datepicker.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('home-assets/ltr/theme/css/themes/t-datepicker-orange.css')}}" rel="stylesheet" type="text/css">
-    <!-- css style -->
-    <link rel="stylesheet" href="{{asset('home-assets/ltr/css/style.css')}}">
+        <!-- bootstrap css styles -->
+        <link rel="stylesheet" href="{{asset('home-assets/ltr/css/bootstrap.min.css')}}">
+        <!-- swiper -->
+        <link rel="stylesheet" href="{{asset('home-assets/ltr/css/swiper-bundle.min.css')}}" />
+        <!-- css style -->
+        <link rel="stylesheet" href="{{asset('home-assets/ltr/css/style.css')}}">
+        <!-- fontawesome icons -->
+        <link href="{{asset('home-assets/rtl/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
+        <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
+        <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
+        <!-- animation style -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- animation script -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- calender -->
+        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('home-assets/ltr/theme/css/t-datepicker.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('home-assets/ltr/theme/css/themes/t-datepicker-orange.css')}}" rel="stylesheet" type="text/css">
+        <!-- css style -->
+        <link rel="stylesheet" href="{{asset('home-assets/ltr/css/style.css')}}">
     @endif
     @livewireStyles
     @livewireScripts
@@ -125,9 +125,35 @@
                         </li>
                         @endguest
 
-                        @auth
-                        <li class="nav-item   m-3">{{Auth::user()->name}}</li>
-                        @endauth
+                     
+            @auth
+            <li class="nav-item dropdown  mx-3">
+                <div class="dropdown">
+
+                    <a href="#" class=" fs-7 nav-link line text-dark text-decoration-none"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                       {{Auth::user()->name}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-position shadow" >
+                        <li>
+                            <a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fa fa-user text-main mx-2" aria-hidden="true"></i>  {{__('lang.profile')}}</a>
+                        </li>
+                        <li class=""><a class="dropdown-item" href="{{route('reservation')}}"><i class="fa-solid fa-building text-main mx-2"></i> {{__('lang.reservations')}}</a> </li>
+                        <li class=""><a class="dropdown-item" href="{{route('wishlist')}}"><i class="fa-solid fa-heart text-main mx-2"></i> {{__('lang.wishlist')}}</a> </li>
+                      
+                        <li>
+                            <a href="{{ route('logout') }}" class="dropdown-item text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out text-main mx-2" aria-hidden="true"></i>  {{__('lang.logout')}}
+                            </a>
+                            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            @endauth
                         <li class="nav-item dropdown  mx-3">
                             <div class="dropdown">
 
@@ -436,7 +462,7 @@
 
 </script>
 <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
-            @if (Lang::locale()=='ar')
+        @if (Lang::locale()=='ar')
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
                 integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
                 crossorigin="anonymous">
@@ -452,7 +478,7 @@
             </script>
             <script src="{{asset('home-assets/rtl/theme/js/t-datepicker.min.js')}}"></script>
             <script src="{{asset('home-assets/rtl/js/ar-script.js')}}"></script>
-            @else
+        @else
 
             <script src="{{asset('home-assets/ltr/js/popper.min.js')}}"></script>
             <script src="{{asset('home-assets/ltr/js/bootstrap.min.js')}}"></script>
@@ -465,7 +491,7 @@
             <script src="{{asset('home-assets/ltr/theme/js/t-datepicker.min.js')}}"></script>
 
             <script src="{{asset('home-assets/ltr/js/en-script.js')}}"></script>
-            @endif
+        @endif
         </div>
 </body>
 

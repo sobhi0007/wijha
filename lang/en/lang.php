@@ -795,5 +795,7 @@ return [
     'api_ok'                  => 'Ok',
     'api_notfound'            => 'Not Found',
     'api_unprocessableEntity' => 'Validation Errors',
-
+    'explore_now' => 'Explore now ',
+    'in' => 'in',
+    'wishlist' => 'Wishlist'
 ];
