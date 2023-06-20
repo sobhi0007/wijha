@@ -170,6 +170,12 @@
 
                                             </div>
                                             <div class="carousel-inner " style="width:100%; height: 250px !important;">
+                                           @auth
+                                            @livewire('wishlist-units', ['color' =>
+                                                    in_array($unit->code, $wishlists)? 'text-danger
+                                                    ':'text-light fa-beat-fade' ,'unit_id'=>$unit->code ])
+                                            @endAuth
+     
                                                 @foreach ($unit->image as $key=>$image)
                                                 <div class="carousel-item {{$key == 0 ? 'active':''}} ">
                                                     <img src="{{$image}}" class="d-block w-100" alt="...">

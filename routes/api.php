@@ -73,6 +73,7 @@ Route::group(['middleware' => ['SecretKey', 'CheckLang']], function () {
         Route::get('/wishlist', [WishlistController::class, 'belongsToUser']);
         Route::post('/wishlist/add', [WishlistController::class, 'addUnit']);
         Route::post('/wishlist/remove', [WishlistController::class, 'removeUnit']);
+        Route::get('/notifications', [NotificationController::class, 'belongsToUser']);
     });
 });
 

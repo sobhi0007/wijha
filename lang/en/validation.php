@@ -169,6 +169,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'current password'=>'current password'
+    ],
 
 ];

@@ -150,7 +150,8 @@ return [
             'check_in'=>'موعد الوصول ',
             'check_out'=>'موعد المغادرة',
             'phone'=>'الهاتف',
-            'message'=>'الرساله'
+            'message'=>'الرساله',
+            'current_password'=>'كلمه السر الحاليه'
         ],
   
 ];

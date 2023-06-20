@@ -824,8 +824,12 @@ return [
     'api_ok'                  => 'تم',
     'api_notfound'            => 'غير موجود',
     'api_unprocessableEntity' => 'تحقيق غير صحيح',
-
-
     'select_unit' => 'اختر الوحدة',
+    'profile_information'=>'معلومات الملف الشخصي',
+    'profile_body'=>'تحديث معلومات حسابك الشخصية وعنوان البريد الإلكتروني.',
+    'profile_update'=>'تحديث ',
+    'profile_updated'=>'تم التحديث بنجاح',
+    'update_password'=>'تحديث كلمة المرور.',
+    'update_password_body'=>'تأكد من أن حسابك يستخدم كلمة مرور طويلة وعشوائية للحفاظ على الأمان.',
 
 ];

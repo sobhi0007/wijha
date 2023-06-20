@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\FaqController;
 use App\Http\Controllers\Home\MapController;
 use App\Http\Controllers\Home\PayController;

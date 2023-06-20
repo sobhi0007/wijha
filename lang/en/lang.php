@@ -797,5 +797,12 @@ return [
     'api_unprocessableEntity' => 'Validation Errors',
     'explore_now' => 'Explore now ',
     'in' => 'in',
-    'wishlist' => 'Wishlist'
+    'wishlist' => 'Wishlist',
+    'profile_information'=>'Profile Information',
+    'profile_body'=>'Update your account\'s profile information and email address.',
+    'profile_update'=>'update ',
+    'profile_updated'=>'Profile updated successfully',
+    'update_password'=>'Update Password',
+    'update_password_body'=>'Ensure your account is using a long, random password to stay secure.',
+
 ];

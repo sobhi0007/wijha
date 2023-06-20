@@ -217,11 +217,12 @@ class SearchResult extends Component
         $types =  Type::all();
 
 
-
-
-
+     
+        $wishlists ='';
+        if(auth()->user()) $wishlists = auth()->user()->wishlist()->pluck('unit_id')->toArray();
         return view('livewire.search-result', [
             'units' => $units,
+            'wishlists'=>$wishlists,
             'types' => $types,
             'badges' => $badges,
             'persons'=>$persons,

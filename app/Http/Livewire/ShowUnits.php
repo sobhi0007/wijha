@@ -11,7 +11,7 @@ class ShowUnits extends Component
 public $cities;
 public $btn='';
 public $units;
-
+public $wishlists='';
 
 
 public function getCity($btn='')
@@ -48,7 +48,8 @@ public function getCity($btn='')
            $num++;
            
         }
-
+        // $this->wishlists ='';
+        // if(auth()->user()) $this->wishlists = auth()->user()->wishlist()->pluck('unit_id')->toArray();
         return view('livewire.show-units');
     }
 }
