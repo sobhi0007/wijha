@@ -369,7 +369,7 @@ foreach ($units as $unit) {
             window.initMap = initMap;
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = 'https://maps.google.com/maps/api/js?key=AIzaSyCkrL8gzWOqUH85uCg1j6IhBh_wV_IdyaM&callback=initMap&language=<?=Lang::locale()?>';
+            script.src = 'https://maps.google.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>';
             document.head.appendChild(script);
         }
 

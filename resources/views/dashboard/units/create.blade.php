@@ -420,7 +420,7 @@
         </div>
     </div>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkrL8gzWOqUH85uCg1j6IhBh_wV_IdyaM&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>"></script>
     <script>
         let map;
         var markersArray = [];

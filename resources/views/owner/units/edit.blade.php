@@ -405,7 +405,7 @@
         </div>
     </div>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>"></script>
     <script>
         let map;
         var coordinates = "<?php echo $unit->coordinates; ?>";
