@@ -89,7 +89,7 @@
     currency: 'SAR',
     description: 'Booking unit',
     publishable_api_key: 'pk_test_cqBiwsU7vraYm9eYRt9zeRoBhMN96k78jPNQD75B',
-    callback_url: 'http://127.0.0.1:8000/pay',
+    callback_url: "{{env('APP_URL').'/pay'}}",
     methods: ['creditcard','stcpay'],
   })
 </script>
