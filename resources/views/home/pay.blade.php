@@ -38,7 +38,7 @@
                             <div class="col-6">
                                 <div class="col-12 text-muted mt-2">{{$unit->title}} </div>
                                 <div class="col-12 fw-bold my-2">The Lounge & Bar</div>
-                                <div class="col-12 text-muted my-2">2 beds · 2 baths</div>
+                                <div class="col-12 text-muted my-2">2 beds 路 2 baths</div>
                                 <hr width="25%">
                                 <div class="col-12">
                                     <span class=""><i class="fa-solid fa-star text-warning"></i> <span
@@ -88,8 +88,8 @@
     amount: {{$total_price*100}},
     currency: 'SAR',
     description: 'Booking unit',
-    publishable_api_key: 'pk_test_cqBiwsU7vraYm9eYRt9zeRoBhMN96k78jPNQD75B',
-    callback_url: "{{env('APP_URL').'/pay'}}",
+    publishable_api_key: "{{env('PUBLISHABLE_API_KEY')}}",
+    callback_url:  "{{env('APP_URL').'/pay'}}",
     methods: ['creditcard','stcpay'],
   })
 </script>
