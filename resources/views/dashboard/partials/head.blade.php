@@ -14,6 +14,10 @@ if (LaravelLocalization::getCurrentLocale() == 'ar') {
     <link rel="icon" href="favicon.ico">
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+     <!-- fontawesome icons -->
+     <link href="{{asset('home-assets/rtl/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
+     <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
+     <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.png">
     <!-- Simple bar CSS -->
@@ -77,4 +81,6 @@ if (LaravelLocalization::getCurrentLocale() == 'ar') {
 
     <script src="https://cdn.tiny.cloud/1/w4lsr7es1xjc9dna5awr0cqz8yhy13bksz36co4fm9jiikeu/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+@livewireStyles
+        @livewireScripts
 </head>
