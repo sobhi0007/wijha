@@ -58,7 +58,7 @@ class UpdateUnitRequest extends FormRequest
             'extra.parking_information'  => 'nullable',
             'extra.wifi_information'     => 'nullable',
             'images'                     => 'nullable',
-            'images.*'                   => 'nullable|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
+            'images.*'                   => 'nullable|mimes:jpeg,png,jpg,gif,svg,pdf,webp|max:2048',
             'fromDate'                   => 'sometimes|required',
             'fromDate.*'                 => 'sometimes|required|date',
             'toDate'                     => 'sometimes|required',
