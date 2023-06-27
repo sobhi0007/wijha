@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use App\Models\Review;
+use App\Enums\ReviewStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewRequest;
@@ -124,6 +126,18 @@ class ReviewController extends Controller
     {
         $data = $request->validated();
         $review->update($data);
+
+        $unit=Unit::find($review->unit_id);
+
+        $sumRatings = $unit->reviews->where('status',ReviewStatus::ACTIVE)->sum('overall_rating');
+        $totalRatings =$unit->reviews->where('status',ReviewStatus::ACTIVE)->count();
+        $avarage_rating =$sumRatings == 0 ? 5 : round($sumRatings/$totalRatings) ;
+        $unit->update([
+        'avarage_rating'=>$avarage_rating,
+        'total_rating'=>$totalRatings,
+        ]);
+
+
         return response()->json(['success' => __('messages.updated')]);
     }
 

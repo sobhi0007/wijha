@@ -27,6 +27,52 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
             @endguest
 
             @auth
+         
+            <li class="nav-item dropdown  mx-3">
+                <div class="dropdown">
+                    <button type="button" class="btn bg-main text-light rounded-lg position-relative"  data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        @if (auth()->user()->unreadNotifications()->count() > 0)
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{auth()->user()->unreadNotifications()->count()}}
+                            </span>
+                        @endif
+                    </button>
+                    <ul class="dropdown-menu dropdown-position overflow-hidden shadow rounded-lg " style="width: 400px;" >
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <div class="ps-4">
+                                    <span class="pl-3 fw-bold">{{__('lang.notifications.title')." ( ". auth()->user()->unreadNotifications()->count()." )"}}</span> 
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="ps-4">
+                                    <a href="#" class="pl-3 text-primary text-decoration-none float-end pe-3">Mark all ass read</a> 
+                                </div>
+                            </div>
+                        </div>
+                        @forelse (auth()->user()->unreadNotifications  as $notification)
+                       
+                        <li>
+                            <a href="{{route('profile.edit')}}" class="dropdown-item white-space-normal bg-light">
+                                <p class="fw-bold mb-0 pb-0">
+                                    {{$notification->data['title']}}
+                                </p>
+                                <p class="fw-">
+                                    {{$notification->data['body']}}
+                                </p>
+                            </a>
+                        </li>
+                        @empty
+                            <div class="d-flex justify-content-center">
+                                <p>{{__('lang.notifications.not_found')}}</p>
+                            </div>
+                        @endforelse
+                       
+                       
+                    </ul>
+                </div>    
+            </li>
             <li class="nav-item dropdown  mx-3">
                 <div class="dropdown">
 
@@ -34,7 +80,7 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                         data-bs-toggle="dropdown" aria-expanded="false">
                        {{Auth::user()->name}}
                     </a>
-                    <ul class="dropdown-menu dropdown-position shadow" >
+                    <ul class="dropdown-menu dropdown-position overflow-hidden shadow custom-position-absolute rounded-lg" >
                         <li>
                             <a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fa fa-user text-main mx-2" aria-hidden="true"></i>  {{__('lang.profile')}}</a>
                         </li>
@@ -68,7 +114,7 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                         <img id="header-lang-img2" src="{{ asset('assets') }}/images/languages/{{$flag}}"
                             alt="Header Language" class="rounded" height="22"> {{$language}}
                     </a>
-                    <ul class="dropdown-menu dropdown-position ">
+                    <ul class="dropdown-menu dropdown-position overflow-hidden rounded-lg ">
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         <?php
                         if ($localeCode == 'en') {

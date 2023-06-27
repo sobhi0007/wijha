@@ -66,7 +66,7 @@ class Reservation extends Notification
     {
         return [
            'title' => $this->title,
-           'body '=> $this->body,
+           'body'=> $this->body,
         ];
     }
 }

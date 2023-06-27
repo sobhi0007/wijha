@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Review;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -8,9 +9,9 @@ use App\Http\Controllers\Home\MapController;
 use App\Http\Controllers\Home\PayController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\UnitController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\User\WishlistController;
-
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/unit/{code}', [UnitController::class, 'show'])->name('unit.show');
@@ -48,4 +49,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/review', [ReviewController::class, 'submitRate'])->name('review.submit');
+
 });

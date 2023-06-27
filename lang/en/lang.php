@@ -804,5 +804,26 @@ return [
     'profile_updated'=>'Profile updated successfully',
     'update_password'=>'Update Password',
     'update_password_body'=>'Ensure your account is using a long, random password to stay secure.',
-
+    'rate' => [
+        '1' => 'Poor',
+        '2' => 'Fair',
+        '3' => 'Good',
+        '4' => 'Very Good',
+        '5' => 'Excellent',
+        'title' => 'Rate Your Booking at',
+        'placeholder' => 'Please be honest and provide your comprehensive and objective rating. Thank you for your time and cooperation in providing your feedback. We look forward to improving our services based on your feedback.',
+        'btn' => 'Save Rating',
+        'success' => 'Rating added successfully',
+        'fail' => 'An error occurred. Please try again later',
+        'add_rate'=>'Add rate',
+    ],
+    'notifications' =>[
+        'title'=>'Notifications',
+        'not_found'=>'There are currently no notifications.'
+    ]        
+        
+        
+        
+        
+        
 ];

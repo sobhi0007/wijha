@@ -12,6 +12,7 @@ use App\Http\Controllers\API\BookingController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DistrictController;
 use App\Http\Controllers\API\WishlistController;
+use App\Http\Controllers\API\NotificationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

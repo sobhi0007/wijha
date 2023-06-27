@@ -62,8 +62,8 @@
                           <span class=" fw-bolder text-main">{{$unit->price}}  {{__('lang.currency')}}    </span><span class="text-muted"> /الليله</span></div>
                         <div class="col-6 d-flex justify-content-end"> 
                           <span class="fw-bold">
-                            <i class="fa-solid fa-star text-warning"></i> 5 <span class="text-muted">
-                               (0)</span>  </div>
+                            <i class="fa-solid fa-star text-warning"></i> {{$unit->avarage_rating}} <span class="text-muted">
+                               ({{$unit->total_rating}})</span>  </div>
                     </div>
                 </div>
               </div>

@@ -31,8 +31,8 @@ class NotificationController extends Controller
       return $this->APIResponse(null, null, 422, false, 'Token not found');
     }
 
-    return  auth()->user()->notifications;
-    return $this->APIResponse(UnitResource::collection($units), null, 200, true, 'User\'s wishlist');
+
+    return $this->APIResponse( $token->tokenable->notifications, null, 200, true, 'User\'s wishlist');
   }
 
 }

@@ -101,8 +101,8 @@
 
                                         <div class="col-6 "> <span class=""><i
                                                     class="fa-solid fa-star text-warning"></i> <span
-                                                    class="fw-bold">5</span> <span class="text-muted">
-                                                    (0)</span></span> </div>
+                                                    class="fw-bold">{{$unit->avarage_rating}}</span> <span class="text-muted">
+                                                    ({{$unit->total_rating}})</span></span> </div>
                                         <div class="col-6 d-flex justify-content-end text-muted"><span
                                                 class=" fw-bolder text-main me-1">
                                                 {{$unit->price}} {{__('lang.currency') }} </span> /

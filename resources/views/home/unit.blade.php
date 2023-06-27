@@ -63,7 +63,7 @@
                                        
                                         <div class="row  mt-4">
                                             <div class=" ">
-                                                <span class=""><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">5</span> <span class="text-muted"> (0)</span></span> 
+                                                <span class=""><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">{{$unit->avarage_rating}}</span> <span class="text-muted"> ({{$unit->total_rating}})</span></span> 
                                                 <span class="mx-2"> . </span> 
                                                 <span><img src="{{asset('assets/images/pin_orange.png')}} " width="20px" alt="" srcset=""> {{$city}} </span>
                                             </div>
@@ -189,7 +189,7 @@
                                                             <div>
                                                                 <span  class="fw-bolder h5 ">{{$user->name}}</span>
                                                             </div>
-                                                            <span class=" text-muted "><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">5</span> <span class="text-muted"> (0)</span></span> 
+                                                            <span class=" text-muted "><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">{{$unit->avarage_rating}}</span> <span class="text-muted"> ({{$unit->total_rating}})</span></span> 
                                                             <span class="mx-2 text-muted"> . </span> 
                                                             <span   class="text-muted"> 2 {{__('lang.places')}} </span>
                                                           
@@ -338,7 +338,7 @@
                                     <div class="row">
                                         <div class="col-8"><span class="fw-bold h3">{{$unit->price}} {{__('lang.currency')}}</span><span class="text-muted h6"> /{{__('lang.night')}}</span></div>
                                         <div class="col-4 text-end"> 
-                                            <span class=""><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">5</span> <span class="text-muted"> (0)</span></span> 
+                                            <span class=""><i class="fa-solid fa-star text-warning"></i> <span class="fw-bold">{{$unit->avarage_rating}}</span> <span class="text-muted"> ({{$unit->total_rating}})</span></span> 
                                         </div>
                                     </div>
                             <form action="{{route('reservation')}}" method="GET">

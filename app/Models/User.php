@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Review;
 use App\Enums\UserType;
 use App\Models\Wishlist;
 use App\Enums\UserApproval;
@@ -63,6 +64,11 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
+   
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
     public function wishlist()
     {
         return $this->hasMany(Wishlist::class);

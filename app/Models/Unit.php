@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Review;
 use App\Enums\UnitStatus;
 use App\Enums\UnitActivation;
 use Spatie\Image\Manipulations;
@@ -182,6 +183,11 @@ class Unit extends Model implements HasMedia
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
 
