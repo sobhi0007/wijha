@@ -819,7 +819,8 @@ return [
     ],
     'notifications' =>[
         'title'=>'Notifications',
-        'not_found'=>'There are currently no notifications.'
+        'not_found'=>'There are currently no notifications.',
+        'mark_as_read'=>'Mark all as read'
     ]        
         
         

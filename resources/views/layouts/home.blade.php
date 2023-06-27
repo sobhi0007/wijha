@@ -129,6 +129,54 @@
             @auth
             <li class="nav-item dropdown  mx-3">
                 <div class="dropdown">
+                    <button type="button" class="btn bg-main text-light rounded-lg position-relative"  data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        @if (auth()->user()->unreadNotifications()->count() > 0)
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{auth()->user()->unreadNotifications()->count()}}
+                            </span>
+                        @endif
+                    </button>
+                    <ul class="dropdown-menu dropdown-position overflow-hidden shadow rounded-lg " style="width: 400px;" >
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <div class="ps-4">
+                                    <span class="pl-3 fw-bold">{{__('lang.notifications.title')." ( ". auth()->user()->unreadNotifications()->count()." )"}}</span> 
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="ps-4">
+                                    <a href="#" class="pl-3 text-primary text-decoration-none float-end pe-1">{{__('lang.notifications.mark_as_read')}}</a> 
+                                </div>
+                            </div>
+                        </div>
+                        @forelse (auth()->user()->unreadNotifications  as $notification)
+                       
+                        <li class="my-2">
+                            <a href="{{route('profile.edit')}}" class="dropdown-item white-space-normal bg-light">
+                                <p class="fw-bold mb-0 pb-0">
+                                    {{$notification->data['title']}}
+                                </p>
+                                <p class="mb-0 pb-0 text-secondary fw-bold">
+                                    {{$notification->data['body']}}
+                                </p>
+                                <p class="text-secondary mt-0 pt-0 text-end">
+                                    {{Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                                </p>
+                            </a>
+                        </li>
+                        @empty
+                            <div class="d-flex justify-content-center">
+                                <p>{{__('lang.notifications.not_found')}}</p>
+                            </div>
+                        @endforelse
+                       
+                       
+                    </ul>
+                </div>    
+            </li>
+            <li class="nav-item dropdown  mx-3">
+                <div class="dropdown">
 
                     <a href="#" class=" fs-7 nav-link line text-dark text-decoration-none"
                         data-bs-toggle="dropdown" aria-expanded="false">
