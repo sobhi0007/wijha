@@ -53,13 +53,16 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                         </div>
                         @forelse (auth()->user()->unreadNotifications  as $notification)
                        
-                        <li>
+                        <li class="my-2">
                             <a href="{{route('profile.edit')}}" class="dropdown-item white-space-normal bg-light">
                                 <p class="fw-bold mb-0 pb-0">
                                     {{$notification->data['title']}}
                                 </p>
-                                <p class="fw-">
+                                <p class="mb-0 pb-0 text-secondary fw-bold">
                                     {{$notification->data['body']}}
+                                </p>
+                                <p class="text-secondary mt-0 pt-0 text-end">
+                                    {{Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
                                 </p>
                             </a>
                         </li>
