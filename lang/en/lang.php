@@ -821,10 +821,11 @@ return [
         'title'=>'Notifications',
         'not_found'=>'There are currently no notifications.',
         'mark_as_read'=>'Mark all as read'
-    ]        
-        
-        
-        
+    ],        
+    'forgotten_password' => 'Forgot your password?',    
+    'forgotten_password_title'=>'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.' ,
+    'forgotten_password_link' => 'Send Link via Email',
+    'reset_password_title'=>'Please enter your new password below to reset your password.'
         
         
 ];

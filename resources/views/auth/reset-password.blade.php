@@ -1,4 +1,18 @@
-<x-guest-layout>
+@extends('layouts.home')
+
+
+@section('content')
+
+<div class="container col-12 col-md-6">
+    <div class="card shadow p-5 my-3 rounded-lg">
+
+   
+    <div class="mb-4 text-sm text-secondary">
+        <h3>{{__('lang.reset_password')}}</h3>
+                    <hr class="title-hr">
+        {{ __('lang.reset_password_title') }}
+    </div>
+
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
@@ -6,34 +20,54 @@
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="form-floating my-2">
+
+            <input name="email" value="{{ old('email') }}" required autofocus
+                dir="rtl" type="email"
+                class="form-control  rounded-lg text-start" id="Email"
+                placeholder="البريد الالكتروني">
+            <label for="Email"
+                class="form-label text-muted fw-bold">{{__('lang.email')}}</label>
+            @error('email')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="form-floating my-2">
+            <input name="password" dir="rtl"
+                type="password"
+                class="form-control  rounded-lg text-start"
+                id="password" placeholder="كلمه السر" 
+                required >
+            <label for="password"
+                class="form-label text-muted fw-bold">{{__('lang.password')}}</label>
+            @error('password')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="form-floating my-2">
+            <input name="password_confirmation" dir="rtl"
+                type="password"
+                class="form-control  rounded-lg text-start"
+                id="password_confirmation" placeholder="كلمه السر" 
+                required >
+            <label for="password_confirmation"
+                class="form-label text-muted fw-bold">{{__('lang.password_confirmation')}}</label>
+            @error('password_confirmation')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
-                {{ __('Reset Password') }}
+                {{__('lang.reset_password')}}
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+
+</div>
+</div>
+@endsection

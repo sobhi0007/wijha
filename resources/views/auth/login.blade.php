@@ -38,8 +38,13 @@
                         class="btn bg-main text-light rounded-lg py-2 px-3">{{__('lang.sginin_btn')}}</button>
                 </div>
                 <div>
-                    <span class="text-secondary">{{__('lang.new_user')}}</span>
-                    <a href="{{route('register')}}">{{__('lang.join_now')}}</a>
+                   
+                </div>
+                <div class="">
+                    <a class="text-decoration-none" href="{{route('password.request')}}">{{__('lang.forgotten_password')}} </a> 
+                    <span class=" mx-2">|</span>
+                    <span class="text-secondary"> {{__('lang.new_user')}} </span>
+                    <a class="text-decoration-none" href="{{route('register')}}"> {{__('lang.join_now')}} </a>
                 </div>
             </div>
         </div>

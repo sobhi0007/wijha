@@ -33,6 +33,9 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->type == UserType::OWNER) {
                 return route('owner.password.reset', ['token' => $token]);
             }
+            if ($user->type == UserType::USER) {
+                return route('password.reset', ['token' => $token]);
+            }
         });
     }
 }

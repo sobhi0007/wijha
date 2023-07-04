@@ -29,7 +29,9 @@
                                                     @enderror
                                                 </div>
                                             </div>
-
+<div class="text-start">
+    <a class="text-decoration-none" href="{{route('password.request')}}">{{__('lang.forgotten_password')}} </a> 
+</div>
                                             <div class="text-end">
                                                 <button type="submit"  wire:loading.attr="disabled"
                                                     class="btn bg-main text-light rounded-lg py-2 px-3">{{__('lang.sginin_btn')}}</button>

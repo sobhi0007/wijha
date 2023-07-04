@@ -30,6 +30,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            
                                             <div class="my-3">
                                                 <div class="form-floating">
                                                     <input wire:model="password" dir="rtl" type="password"
