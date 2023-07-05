@@ -121,7 +121,7 @@ class PayController extends Controller{
             'unit_id'=>$unit->id,
         ]);
     
-           $user->notify( new Reservation($unit , $user ));
+           $user->notify( new Reservation($unit , $user , __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks')));
            return $this->APIResponse(null , null , 200 , true ,'Unit booked successfully. ');
         }
       }
