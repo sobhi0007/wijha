@@ -754,8 +754,16 @@ return [
     'payment_fail' => 'Payment was declined',
     'payment_success_message' => 'Thank you for your payment. Your booking has been confirmed.',
     'payment_success' => 'Transaction completed successfully',
-    'booked_success_title' => 'Unit has been successfully booked.',
-    'booked_success_body' => 'The unit reservation has been successfully completed at ',
+    'booked_success_title' => 'Unit booked successfully',
+    'booked_cancelled_title' => 'Unit booking cancelled successfully',
+    'booked_completed_title' => 'Unit booking approved successfully',
+    'booked_pending_title' => 'Unit booking pending',
+    'booked_rejected_title' => 'Unit booking rejected',
+    'booked_success_body' => 'Unit booking successfully completed at ',
+    'booked_cancelled_body' => 'Unit booking successfully cancelled at ',
+    'booked_completed_body' => 'Unit booking successfully approved at ',
+    'booked_pending_body' => 'Unit booking is pending at ',
+    'booked_rejected_body' => 'Unit booking successfully rejected at ',
     'thanks' => ' Thank you for choosing our service.',
     'paid' => 'Paid',
     'payment_method' => 'Payment Method',
@@ -825,7 +833,9 @@ return [
     'forgotten_password' => 'Forgot your password?',    
     'forgotten_password_title'=>'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.' ,
     'forgotten_password_link' => 'Send Link via Email',
-    'reset_password_title'=>'Please enter your new password below to reset your password.'
-        
+    'reset_password_title'=>'Please enter your new password below to reset your password.',
+    'greeting'=>'Hello , ' ,
+    'thanks_service'=>'Thank you for choosing our service.',
+    'thanks_for'=>'Thank you for using Wijha!'
         
 ];

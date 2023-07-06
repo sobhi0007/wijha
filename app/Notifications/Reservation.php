@@ -50,10 +50,10 @@ class Reservation extends Notification
 
         $url = env('APP_URL');
         return (new MailMessage)
-        ->subject('Booking Reserved Successfully')
-        ->line('Hi Mr ,'.$this->user->name.' , your booking has been reserved successfully for '.$this->unit->title.'.  Thank you for choosing our service.')
+        ->subject($this->title)
+        ->line(__('lang.greeting').$this->user->name.','.$this->body.' '.$this->unit->title.'.'.__('lang.thanks_service'))
         ->action('Notification Action', url('/'))
-        ->line('Thank you for using Wijha!');
+        ->line(__('lang.thankys_for'));
     }
 
     /**
