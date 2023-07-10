@@ -219,111 +219,46 @@
                             <div class="col-12 ">
                                 <div class="card mb-3 rounded-lg col-12  overflow-hidden " > 
                                     <div class="row g-0">
-                                    <div class="col-md-12 mb-5">
+                                    <div class="col-md-12 mb-1">
                                         <div class="card-body p-4">
-                                            <h4 class="fw-bold mt-4"> Reviews (3 reviews)</h4>
+                                            <h4 class="fw-bold mt-4"> {{__('lang.reviews')}} ( {{$unit->reviews->count()}} )</h4>
                                          <hr width="10% ">
-                                            <div class="d-none my-4" hidden>
-                                                <div class="stars text-start"> 
-                                                    <input type="radio" id="one" name="rate" value="1">
-                                                    <label for="one"><i class="fa-solid fa-star h5"></i></label>
-                                                    <input type="radio" id="two" name="rate" value="2">
-                                                    <label for="two"><i class="fa-solid fa-star h5"></i></label>
-                                                    <input type="radio" id="three" name="rate" value="3">
-                                                    <label for="three"><i class="fa-solid fa-star h5"></i></label>
-                                                    <input type="radio" id="four" name="rate" value="4">
-                                                    <label for="four"><i class="fa-solid fa-star h5"></i></label>
-                                                    <input type="radio" id="five" name="rate" value="5">
-                                                    <label for="five"><i class="fa-solid fa-star h5"></i></label>
-                                                </div>
-                                            </div>
-                                            <form class="d-none col-12 position-relative" hidden>
-                                                <input class="form-control me-2 col-12 rounded-lg py-2" type="text" placeholder="Share your thoughts" >
-                                                <button type="submit" class="text-dark rounded-circle  bg-main position-absolute  bottom-0 end-0 border-0 py-1 mb-1 me-1 px-2  mt-2 border-none"><i class="text-light fa-solid fa-arrow-right"></i></button>
-                                            </form>
                                         </div>
                                     </div>
+                                  @forelse ($unit->reviews as $review)
+                                  <div class="row mx-1 ">
+                                    <div class="col-1">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY3QVTWT0lrSx73oXNEjgAZV-npePWU0la-TD57prRrQ-ONw_BpVq-ketNJ7Jb-7uLZ2w&usqp=CAU" class="rounded-circle" width="50px" alt="" srcset="">
+                                    </div>
+                                    <div class="col-11">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="fw-bold m-0 h6" >{{$review->booking->user->name}}</p>
+                                                <p class="text-muted h6 ">{{Carbon\Carbon::parse($review->created_at)->diffForHumans() }}</p>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                   <span><i class="fa-solid fa-star {{$review->overall_rating >= $i ? 'text-warning':'text-secondary'}}"></i></span> 
+                                                @endfor
+                                               
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-muted fw-bold">
+                                               {{$review->review}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="text-muted my-5">
+                                </div>   
+                                  @empty
+                                  <div class="d-flex justify-content-center my-3">
+                                    {{__('lang.no_reviews_yet')}}
+                                  </div>
+                                    
+                                  @endforelse
                                   
-                                    <div class="row mx-1 ">
-                                        <div class="col-1">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY3QVTWT0lrSx73oXNEjgAZV-npePWU0la-TD57prRrQ-ONw_BpVq-ketNJ7Jb-7uLZ2w&usqp=CAU" class="rounded-circle" width="50px" alt="" srcset="">
-                                        </div>
-                                        <div class="col-11">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <p class="fw-bold m-0 h6" >Majed El Mohands</p>
-                                                    <p class="text-muted h6 ">May 20, 2021</p>
-                                                </div>
-                                                <div class="col-6 text-end">
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 text-muted fw-bold">
-                                                    There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="text-muted my-5">
-                                    </div>  
-                                    <div class="row mx-1 ">
-                                        <div class="col-1">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqqF9rpfHLbAqzYtoPAK-bczXDDfWF8y9FIy14v03336bo6cc05BPMhV1ShnjpDYcq1rQ&usqp=CAU" class="rounded-circle image-fluid" width="50px" height="50px" alt="" srcset="">
-                                        </div>
-                                        <div class="col-11">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <p class="fw-bold m-0 h6" >Talal Bin Hammed</p>
-                                                    <p class="text-muted  h6">Jan 3, 2023</p>
-                                                </div>
-                                                <div class="col-6 text-end">
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 text-muted fw-bold">
-                                                    There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="text-muted my-5">
-                                    </div>      
-                                    <div class="row mx-1 ">
-                                        <div class="col-1">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0IsZuPGwNHR0qaD1Foq82SIfSUHZZCXWI-HB_eE1YOawyIX4XWhCY4trrSND-AiH8xs&usqp=CAU" class="rounded-circle" width="50px" alt="" srcset="">
-                                        </div>
-                                        <div class="col-11">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <p class="fw-bold m-0 h6" >Fares Zayaad</p>
-                                                    <p class="text-muted  h6">Feb 20, 2023</p>
-                                                </div>
-                                                <div class="col-6 text-end">
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                   <span><i class="fa-solid fa-star text-warning"></i></span> 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 text-muted fw-bold">
-                                                    There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="text-muted my-5">
-                                    </div>              
-                                      
-                                   
                                 </div> 
                             </div>
                         </div>

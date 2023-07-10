@@ -836,6 +836,6 @@ return [
     'reset_password_title'=>'Please enter your new password below to reset your password.',
     'greeting'=>'Hello , ' ,
     'thanks_service'=>'Thank you for choosing our service.',
-    'thanks_for'=>'Thank you for using Wijha!'
-        
+    'thanks_for'=>'Thank you for using Wijha!',
+    'no_reviews_yet'=>'There are no reviews yet.',
 ];

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Review;
+use App\Http\Controllers\User\NotificationController;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -14,7 +14,7 @@ use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\User\WishlistController;
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/unit/{code}', [UnitController::class, 'show'])->name('unit.show');
+Route::get('/unit/{unit:code}', [UnitController::class, 'show'])->name('unit.show');
 Route::get('/searchresults', [MapController::class, 'FindUnitsBelongsToSearch'])->name('home.searchresults');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/contact-us', [MessageController::class, 'index'])->name('message.index');
@@ -50,5 +50,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/review', [ReviewController::class, 'submitRate'])->name('review.submit');
-
+    Route::get('/markAsRead',[NotificationController::class,'markAsRead'])->name('markAsRead');
 });

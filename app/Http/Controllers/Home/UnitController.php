@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+
+use App\Enums\ReviewStatus;
+use App\Enums\UnitStatus;
 use DateTime;
 use DatePeriod;
 use DateInterval;
@@ -16,14 +19,16 @@ use  App\Http\Requests\Home\SearchRequest;
 class UnitController extends Controller
 {
 
-    public function show($code )
+    public function show(Unit $unit )
     {
         $lang =app()->getLocale();
-        $unit = Unit::where('code',$code)->where('status',1)->get()->first();
-
+        $unit = Unit::where('id',$unit->id)->where('status',UnitStatus::PUBLISHED)->with(['reviews'=> function ($query) {
+            $query->where('status', ReviewStatus::ACTIVE);
+        }])->get()->first();
+        $unit ?: abort(404);
 
         $bookedDates = Booking::where('unit_id',$unit->id)->get(['from_datetime','to_datetime']);
-      
+
 
         $dateRanges = $bookedDates->flatMap(function ($booking) {
         $from = new DateTime(max($booking->from_datetime, date('Y-m-d')));

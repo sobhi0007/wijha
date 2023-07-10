@@ -47,7 +47,7 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                             </div>
                             <div class="col-6">
                                 <div class="ps-4">
-                                    <a href="#" class="pl-3 text-primary text-decoration-none float-end pe-1">{{__('lang.notifications.mark_as_read')}}</a> 
+                                    <a href="{{route('markAsRead')}}" class="pl-3 text-primary text-decoration-none float-end pe-1">{{__('lang.notifications.mark_as_read')}}</a> 
                                 </div>
                             </div>
                         </div>
