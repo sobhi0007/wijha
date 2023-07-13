@@ -118,7 +118,7 @@
                                          </div>
                                          <div class="col-6 col-md-2 py-3 my-auto " dir="ltr">
                                             <button wire:click.prevent="resetAll()" class="btn col-12 col-md-12 rounded-lg bg-danger text-light" wire:loading.class="disabled" wire:offline.attr="disabled">
-                                            <i class="fa-solid fa-filter"></i>
+                                                <i class="fa-solid fa-rotate-right"></i>
                                               {{__('lang.reset')}}
                                             </button>
                                          </div>
@@ -141,7 +141,7 @@
                 @php
                 $card_num=0;
                 @endphp
-                <div class="col-lg-7 col-12 ">
+                <div class="col-xl-7 col-12 ">
                     @foreach ($units as $key=>$unit)
                     <div class="col-12">
                         <div class="card mb-3 rounded-lg col-12 custom-shadow overflow-hidden location-div "
@@ -206,26 +206,29 @@
                                             <h5 class=""> {{$unit->title}}</h5>
                                             <hr class="w-25">
                                             <div class="row mb-2">
-                                                <div class="col-4 text-muted text-nowrap "><i
-                                                        class="fa-regular fa-user fa-fw me-1"></i>
-                                                    6 guests</div>
-                                                <div class="col-4 text-muted text-nowrap "><i
-                                                        class="fa-regular fa-bath fa-fw me-1 "></i> 3 baths</div>
-                                                <div class="col-4 text-muted text-nowrap "><i
+                                                <div class="col-5 pl-0 text-muted "><i class="fa-regular fa-user fa-fw me-1"></i>
+                                                    <span class="fs-6">
+                                                       {{Lang::locale()== 'en' ? $unit->capacity->name_en :$unit->capacity->name_ar}}
+                                                    </span>    
+                                                </div>
+                                                <div class="col-3 m-0 p-0 text-muted fs-6 "><i class="fa-regular fa-bath fa-fw me-1 "></i>
+                                                    {{$unit->bathrooms_number . ' ' . __('lang.bathrooms') }}</div>
+                                                <div class="col-4 text-muted  fs-6"><i
                                                         class="fa-regular fa-door-open fa-fw me-1 "></i>
-                                                    {{$unit->bedrooms_number}} bedrooms </div>
+                                                    {{$unit->bedrooms_number . ' ' . __('lang.bedrooms') }} </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-4 text-muted text-nowrap "><i
-                                                        class="fa-solid fa-bed fa-fw me-1"></i> 6
-                                                    beds</div>
-                                                <div class="col-4 text-muted text-nowrap "><i
-                                                        class="fa-solid fa-ban-smoking fa-fw me-1 "></i> No smoking
+                                                <div class="col-5 text-muted "><i class="fa-solid fa-users fa-fw me-1"></i>
+                                                    <span class="fs-6">   {{Lang::locale()== 'en' ? $unit->person->name_en :$unit->person->name_ar }} </span>
                                                 </div>
-                                                <div class="col-4 text-muted text-nowrap "><i
-                                                        class="fa-solid fa-wifi fa-fw me-1 "></i>
-                                                    Wifi</div>
-                                            </div>
+                                                <div class="col-3 text-muted p-0 "><i
+                                                        class="fa-solid fa-arrows-up-down-left-right fa-fw me-1"></i>
+                                                    {{$unit->size . ' ' .__('lang.meter')}}<sup>2</sup> </div>
+                                                <div class="col-4 text-nowrap initialism text-muted "><i class="fa-solid fa-house fa-fw me-1"></i>
+                                                    <span class="fs-6 "> 
+                                                    {{__('lang.unit_type')}} {{Lang::locale()== 'en' ? $unit->type->name_en:$unit->type->name_ar }} </div>
+                                                    </span>    
+                                                </div>
                                             <hr class="w-25">
                                             <div class="row ">
 
@@ -247,7 +250,7 @@
                     <?php $card_num++;?>
                     @endforeach
                 </div>
-                <div class="col-md-5 col-12 d-lg-block d-none">
+                <div class="col-xl-5 col-12 d-lg-block d-none">
                     <div wire:ignore id="map" class=" rounded-lg is-sticky"></div>
                 </div>
 

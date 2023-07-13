@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use App\Enums\ReviewStatus;
 use App\Enums\UnitStatus;
+use App\Enums\UserApproval;
+use App\Enums\UserType;
 use DateTime;
 use DatePeriod;
 use DateInterval;
@@ -12,9 +14,7 @@ use App\Models\Unit;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use  App\Http\Requests\Home\SearchRequest;
 
 class UnitController extends Controller
 {
@@ -45,20 +45,20 @@ class UnitController extends Controller
             $dates[] = $date->format('Y-m-d');
         }
     
-        return $dates;
-    })->unique()->values()->toArray();
+            return $dates;
+            })->unique()->values()->toArray();
+
+            usort($dateRanges, function($a, $b) {
+            $dateA = new DateTime($a);
+            $dateB = new DateTime($b);
+            return $dateA <=> $dateB;
+            });
     
-    usort($dateRanges, function($a, $b) {
-        $dateA = new DateTime($a);
-        $dateB = new DateTime($b);
-        return $dateA <=> $dateB;
-    });
-    
- $dateRanges = implode(',',$dateRanges);
+             $dateRanges = implode(',',$dateRanges);
   
   
-           $city = City::find($unit->city_id)['name_'.app()->getLocale()];
-           $user = user::find($unit->user_id);
+            $city = City::find($unit->city_id)['name_'.app()->getLocale()];
+            $user = user::find($unit->user_id);
             $images=$unit->getMedia('images');
             $x=[];
             foreach ($images as $image) {
@@ -67,6 +67,18 @@ class UnitController extends Controller
             $unit['image'] =$x;
            
             $categories = Category::get(['name_'.app()->getLocale() .' as name', 'slug']);
-      return  view('home.unit', compact('unit','categories','city','user','dateRanges' ));
+            return  view('home.unit', compact('unit','categories','city','user','dateRanges' ));
+    }
+
+
+    public function ownerUnits(User $user){
+        $owner = User::where('type' , UserType::OWNER)
+        ->where('approval' , UserApproval::APPROVED)
+        ->where('id' , $user->id)
+        ->get()->first();
+        $owner ?:abort(404);
+        $owner->units;
+        
+        
     }
 }

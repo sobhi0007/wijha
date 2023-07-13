@@ -865,4 +865,15 @@ return [
     'thanks_service'=>'شكرًا لاختيارك خدمتنا.',
     'thanks_for'=>'شكرا لاستخدامك وجهه',
     'no_reviews_yet'=>'لا توجد تقييمات حتى الآن.',
+    'explore_owner_units'=>'اكتشف الوحدات السكنية للمالك',
+    'joined_in'=>'انضم',
+    'guests'=>'ضيف',
+    'bathrooms'=>'حماماََ',
+    'bedrooms'=>'غرف نوم',
+    'no_smoking'=>'ممنوع التدخين',
+    'wifi'=>'واي فاي',
+    'meter'=>'م',
+    'unit_type'=>'نوع الوحدة',
+    'time_info'=>'اوقات الوصول و المغادرة'
+    
 ];

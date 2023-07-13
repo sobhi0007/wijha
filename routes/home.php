@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\User\NotificationController;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -12,6 +11,8 @@ use App\Http\Controllers\Home\UnitController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\Home\ReservationController;
+use App\Http\Controllers\User\NotificationController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/unit/{unit:code}', [UnitController::class, 'show'])->name('unit.show');
@@ -19,7 +20,10 @@ Route::get('/searchresults', [MapController::class, 'FindUnitsBelongsToSearch'])
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/contact-us', [MessageController::class, 'index'])->name('message.index');
 Route::post('/contact-us', [MessageController::class, 'store'])->name('message.store');
-Route::get('/reservation', [App\Http\Controllers\Home\ReservationController::class, 'index'])->name('reservation');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+
+Route::get('/owner/{user:id}/units',[UnitController::class, 'ownerUnits'])->name('owner.units');
+
 
 Route::get('/pay', [PayController::class, 'store'])->name('pay.store');
 

@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Unit;
 use App\Models\Review;
 use App\Enums\UserType;
+use App\Models\Booking;
 use App\Models\Wishlist;
 use App\Enums\UserApproval;
 use Laravel\Sanctum\HasApiTokens;
@@ -64,11 +66,11 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
-   
-    public function reviews()
+    public function units()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Unit::class);
     }
+
     public function wishlist()
     {
         return $this->hasMany(Wishlist::class);

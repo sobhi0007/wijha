@@ -838,4 +838,14 @@ return [
     'thanks_service'=>'Thank you for choosing our service.',
     'thanks_for'=>'Thank you for using Wijha!',
     'no_reviews_yet'=>'There are no reviews yet.',
+    'explore_owner_units'=>'Explore Owner\'s Housing Units',
+    'joined_in'=>'Joined in',
+    'guests'=>'Guests',
+    'bathrooms'=>'Bathrooms',
+    'bedrooms'=>'Bedrooms',
+    'no_smoking'=>'No Smoking',
+    'wifi'=>'Wifi',
+    'meter'=>'m',
+    'unit_type'=>'Unit type',
+    'time_info' => 'Arrival and Departure Times'
 ];
