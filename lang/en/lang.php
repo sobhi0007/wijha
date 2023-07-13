@@ -839,6 +839,7 @@ return [
     'thanks_for'=>'Thank you for using Wijha!',
     'no_reviews_yet'=>'There are no reviews yet.',
     'explore_owner_units'=>'Explore Owner\'s Housing Units',
+    'owner_units'=>'Owner\'s Housing Units',
     'joined_in'=>'Joined in',
     'guests'=>'Guests',
     'bathrooms'=>'Bathrooms',

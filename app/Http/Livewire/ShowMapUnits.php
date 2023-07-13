@@ -28,6 +28,7 @@ class ShowMapUnits extends Component
         $city = City::search($this->location)->get()->first();
         $search = $city ?   $lang == 'ar'? $city->name_ar:$city->name_en:$this->location;
         $id = empty($city)?3:$city->id;
+
         $units = Unit::where('city_id',$id)->where('status',1)->whereDoesntHave('bookings' , function ($query  ) use ( $start_date){
             $query->where('to_datetime','>=' ,$this->t_start);
         })->paginate(1);
@@ -41,10 +42,7 @@ class ShowMapUnits extends Component
                 $unit['image'] =$x;
       
             }
-
-
-          
-      
+            
         foreach ($units as $key => $unit) {
             $x= '<div class="card border-0" style="width: 18rem;">'.
             '<div id="carouselExampleIndicatorsss" class="carousel slide" data-bs-ride="carousel">'.

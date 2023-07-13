@@ -866,6 +866,7 @@ return [
     'thanks_for'=>'شكرا لاستخدامك وجهه',
     'no_reviews_yet'=>'لا توجد تقييمات حتى الآن.',
     'explore_owner_units'=>'اكتشف الوحدات السكنية للمالك',
+    'owner_units'=>' الوحدات السكنية للمالك',
     'joined_in'=>'انضم',
     'guests'=>'ضيف',
     'bathrooms'=>'حماماََ',
