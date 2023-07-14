@@ -53,6 +53,16 @@ class UnitResource extends JsonResource
             $personName = null;
         }
 
+        if (count($this->getMedia('images'))) {
+            $images = [];
+            foreach ($this->getMedia('images') as $media) {
+                array_push($images, $media->getUrl());
+            }
+        } else {
+            $images = null;
+        }
+
+
         return [
             'code' => $this->code,
             'title' => $this->title,
@@ -70,7 +80,7 @@ class UnitResource extends JsonResource
             'capacity' => $capacityName,
             'badge' => $badgeName,
             'person' => $personName,
-            'images' => $this->images
+            'images' => $images,
         ];
     }
 }
