@@ -148,14 +148,11 @@ class UnitController extends Controller
 
 
         }
-
-
-        $categories = Category::get(['name_'.app()->getLocale() .' as name', 'slug']);
-
+        $wishlists= !auth()->user()?[]:auth()->user()->wishlist;
         return view('home.ownerUnits') 
-        ->with('categories',$categories)
         ->with('units',$units)
-        ->with('owner',$owner);
+        ->with('owner',$owner)
+        ->with('wishlists',$wishlists);
 
         
     }
