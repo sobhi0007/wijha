@@ -28,6 +28,9 @@ Route::group(['middleware' => ['SecretKey', 'CheckLang']], function () {
 
     // login and register 
     Route::post('/auth/register', [AuthController::class, 'createUser']);
+    Route::post('/auth/update/profile', [AuthController::class, 'updateProfile']);
+    Route::post('/auth/update/password', [AuthController::class, 'updatePassword']);
+    Route::post('/auth/forget_password', [AuthController::class, 'forgetPassword']);
     Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
     // cities api routes

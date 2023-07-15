@@ -5,16 +5,21 @@ namespace App\Http\Controllers\API;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Password;
 use Laravel\Sanctum\PersonalAccessToken;
-use App\Http\Resources\UserResource;
 use App\Http\Controllers\API\APIResponse;
-use App\Http\Requests\API\CreateUserRequest;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\API\LoginUserRequest;
+use App\Http\Requests\API\CreateUserRequest;
+use App\Http\Requests\API\UpdateProfileRequest;
+use App\Http\Requests\API\ForgetPasswordRequest;
+use App\Http\Requests\API\UpdatePasswordRequest;
+use Illuminate\Validation\ValidationException;
 
-class AuthController extends Controller
+    class AuthController extends Controller
 {
     use APIResponse;
     /**
@@ -78,5 +83,54 @@ class AuthController extends Controller
         ]);
 
         return $this->APIResponse('', null, 200, true, 'Token captured , thank you ! ^_^');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request){
+       
+        $bearerToken = $request->token;
+        $token = PersonalAccessToken::findToken($bearerToken);
+        if (!$token) {
+            return $this->APIResponse(null, null, 404, false, 'Token not found');
+        }
+        $user = $token->tokenable;
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->update([
+                'password'=>$request->password,
+                ]);
+           }else{
+            return $this->APIResponse(null, ['current_password'=>__('auth.password')], 403 , false, 'Validation errors !');
+           }
+
+        return $this->APIResponse(new UserResource($user), null, 200, true, 'Password updated successfully !');
+    }
+
+    public function updateProfile(UpdateProfileRequest $request){
+        $bearerToken = $request->token;
+        $token = PersonalAccessToken::findToken($bearerToken);
+        if (!$token) {
+            return $this->APIResponse(null, null, 404, false, 'Token not found');
+        }
+        $user = $token->tokenable;
+        $user->update([
+        'name'=>$request->name,
+        'email'=>$request->email,
+        ]);
+        return $this->APIResponse(new UserResource($user), null, 200, true, 'Profile updated successfully !');
+    }
+
+    public function forgetPassword(ForgetPasswordRequest $request){
+        
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        if ($status == Password::RESET_LINK_SENT) {
+            return $this->APIResponse(null, null, 200, true, __($status));
+        }
+
+        throw ValidationException::withMessages([
+            'email' => [trans($status)],
+        ]);
+       
     }
 }
