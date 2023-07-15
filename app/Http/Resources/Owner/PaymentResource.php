@@ -20,6 +20,7 @@ class PaymentResource extends JsonResource
             'payment_method' => $this->payment_method,
             'amount' => $this->amount,
             'status' => $this->status?->lang(),
+            'unit' => new UnitResource($this->booking?->unit),
         ];
     }
 }
