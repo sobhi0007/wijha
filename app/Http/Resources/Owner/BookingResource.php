@@ -23,7 +23,8 @@ class BookingResource extends JsonResource
             'vat' => $this->vat . ' ' . __('lang.currency'),
             'total_price' => $this->total_price . ' ' . __('lang.currency'),
             'unit' => new UnitResource($this->unit),
-            'image' => $this->unit->getFirstMediaURL('images')
+            'image' => $this->unit->getFirstMediaURL('images'),
+            'review' => new ReviewResource($this->review),
         ];
     }
 }

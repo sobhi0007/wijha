@@ -16,7 +16,7 @@ class ReviewResource extends JsonResource
     {
         return [
             'ID' => $this->id,
-            'Booking' => new BookingResource($this->booking),
+            // 'Booking' => new BookingResource($this->booking),
             'Accuracy' => $this->accuracy,
             'Cleanliness' => $this->cleanliness,
             'Services' => $this->services,
