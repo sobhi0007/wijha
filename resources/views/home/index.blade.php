@@ -2,45 +2,82 @@
 
 
 @section('content')
-<div class=" d-none d-md-block ">
-  <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <?php $count=0;?>
-      @foreach ($sliders as $slider)
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$count}}"
-        class="{{$count==0?'active':''}}" aria-current="{{$count==0?'true':''}}" aria-label="Slide 1"></button>
-      <?php $count++;?>
-      @endforeach
-    </div>
-    <div class="carousel-inner">
-      <?php $x=1;?>
-      @foreach ($sliders as $slider)
 
-      <div class="carousel-item <?=$x==1?'active':''?> ">
-        <a href="{{$slider->link}}">
-          <img src="{{ $slider->img }}" class="d-block w-100 " alt="" class="rounded" width="60%">
-          <div class="carousel-caption bg-custom-dark text-start p-2">
-            <p>{{ $slider->getTranslation('text', Lang::locale()) }}</p>
+ 
+    <?php $x=1;?>
+    @foreach ($sliders as $slider)
+    <style>
+    .example-slider .fnc-slide-<?php echo $x; ?> .fnc-slide__inner,
+    .example-slider .fnc-slide-<?php echo $x; ?> .fnc-slide__mask-inner {   background-image: url({{ $slider->img }});
+    }
+    </style>
+    <?php $x++;?>
+    @endforeach
+
+    
+
+
+
+
+{{-- start --}}
+<link href="{{asset('assets/slider/style.css')}}" rel="stylesheet" />
+<link href="{{asset('assets/slider/style.scss')}}" rel="stylesheet" />
+
+<div class="demo-cont d-none d-sm-block" >
+  <!-- slider start -->
+  <div class="fnc-slider example-slider">
+    <div class="fnc-slider__slides">
+      <!-- slide start -->
+      @foreach ($sliders as $slider)
+      <div class="fnc-slide m--blend-green m--active-slide">
+        <div class="fnc-slide__inner">
+          <div class="fnc-slide__mask">
+            <div class="fnc-slide__mask-inner"></div>
           </div>
-        </a>
+          <div class="fnc-slide__content">
+            <h2 class="fnc-slide__heading">
+              <div class="fnc-slide__heading-line">
+                <span><p>{{ $slider->getTranslation('text', Lang::locale()) }}</p></span>
+              </div>
+            </h2>
+           
+            </button>
+          </div>
+        </div>
       </div>
-      <?php $x++;?>
-
       @endforeach
-
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <nav class="fnc-nav" hidden>
+      <div class="fnc-nav__bgs">
+        <div class="fnc-nav__bg m--navbg-green m--active-nav-bg"></div>
+        <div class="fnc-nav__bg m--navbg-dark"></div>
+        <div class="fnc-nav__bg m--navbg-red"></div>
+        <div class="fnc-nav__bg m--navbg-blue"></div>
+      </div>
+      <div class="fnc-nav__controls">
+        <button class="fnc-nav__control">
+          Black Widow
+          <span class="fnc-nav__control-progress"></span>
+        </button>
+        <button class="fnc-nav__control">
+          Captain America
+          <span class="fnc-nav__control-progress"></span>
+        </button>
+        <button class="fnc-nav__control">
+          Iron Man
+          <span class="fnc-nav__control-progress"></span>
+        </button>
+        <button class="fnc-nav__control">
+          Thor
+          <span class="fnc-nav__control-progress"></span>
+        </button>
+      </div>
+    </nav>
   </div>
-
+  <!-- slider end -->
 </div>
 
+{{-- end --}}
 <div class="container mt-2 col-11 col-sm-10 ">
 
   <link href="{{asset('./assets/css/select.css')}}" rel="stylesheet" />
@@ -95,7 +132,7 @@
     <a href="/searchresults?location={{$city->slug}}&check_in=null&check_out=null" class="text-decoration-none">
       <div class="item">
         <div class="d-grid justify-items-center" style="justify-items: center;">
-          <img class="w-75 mb-3 rounded-lg-custom col-12 filter" src="{{$city->img}}" alt="" srcset="">
+          <img loading="lazy" class="w-75 mb-3 rounded-lg-custom col-12 filter" src="{{$city->img}}" alt="" srcset="">
           <div class="col-8">
             <h5 class="text-start  text-dark font-weight-bolder">{{$city->name}}</h5>
             <h6 class="text-start   text-muted  ">{{$city->units_count}} {{__('lang.properties_found')}}</h6>
@@ -112,7 +149,7 @@
 <div class="container-fluid px-5 my-5">
   <div class="row align-items-center">
     <div class="col-7 d-none d-md-block" data-aos="fade-up">
-      <img src="{{asset('assets/images/section-2-image-2.png')}}" alt="" srcset="" class="img-fluid">
+      <img loading="lazy" src="{{asset('assets/images/section-2-image-2.png')}}" alt="" srcset="" class="img-fluid">
     </div>
     <div class="col-12 col-md-5">
       <div data-aos="fade-up">
@@ -162,17 +199,17 @@
   </div>
   <div class="row my-4 bg-sec-4">
     <div class="col-sm-4 col-12 text-center">
-      <img src="./assets/images/homepage/section-4-image1.png" class="w-50" alt="" srcset="">
+      <img loading="lazy" src="./assets/images/homepage/section-4-image1.png" class="w-50" alt="" srcset="">
       <div class="my-4 h4">{{__('lang.how_it_works.1_title')}}</div>
       <div class="text-muted h6">{{__('lang.how_it_works.1_desc')}}</div>
     </div>
     <div class="col-sm-4 col-12 text-center">
-      <img src="./assets/images/homepage/section-4-image2.png" class="w-50 mb-lg-3" alt="" srcset="">
+      <img loading="lazy" src="./assets/images/homepage/section-4-image2.png" class="w-50 mb-lg-3" alt="" srcset="">
       <div class="my-4 h4">{{__('lang.how_it_works.2_title')}}</div>
       <div class="text-muted h6">{{__('lang.how_it_works.2_desc')}}</div>
     </div>
     <div class="col-sm-4 col-12 text-center">
-      <img src="./assets/images/homepage/section-4-image3.png" class="w-50 my-lg-1" alt="" srcset="">
+      <img loading="lazy" src="./assets/images/homepage/section-4-image3.png" class="w-50 my-lg-1" alt="" srcset="">
       <div class="my-4 h4">{{__('lang.how_it_works.3_title')}}</div>
       <div class="text-muted h6">{{__('lang.how_it_works.3_desc')}}</div>
     </div>
@@ -206,7 +243,7 @@
     </div>
 
     <div class="col-6">
-      <img src="./assets/images/homepage/section-5-image.png" alt="" srcset="" class="img-fluid">
+      <img loading="lazy" src="./assets/images/homepage/section-5-image.png" alt="" srcset="" class="img-fluid">
     </div>
 
   </div>
@@ -297,5 +334,5 @@ windowSize();
 </script>
 @endif
 
-
+<script src="{{asset('assets/slider/script.js')}}"></script>
 @endsection
