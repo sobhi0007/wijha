@@ -29,6 +29,7 @@
     <div class="fnc-slider__slides">
       <!-- slide start -->
       @foreach ($sliders as $slider)
+      <a href="{{$slider->link}}">
       <div class="fnc-slide m--blend-green m--active-slide">
         <div class="fnc-slide__inner">
           <div class="fnc-slide__mask">
@@ -45,6 +46,7 @@
           </div>
         </div>
       </div>
+    </a>
       @endforeach
     </div>
     <nav class="fnc-nav" hidden>
