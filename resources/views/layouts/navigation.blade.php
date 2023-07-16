@@ -47,7 +47,7 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                             </div>
                             <div class="col-6">
                                 <div class="ps-4">
-                                    <a href="{{route('markAsRead')}}" class="pl-3 text-primary text-decoration-none float-end pe-1">{{__('lang.notifications.mark_as_read')}}</a> 
+                                    <a href="{{route('markAsRead')}}" class="pl-3 text-primary text-nowrap text-decoration-none float-end pe-4">{{__('lang.notifications.mark_as_read')}}</a> 
                                 </div>
                             </div>
                         </div>
@@ -76,14 +76,14 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                     </ul>
                 </div>    
             </li>
-            <li class="nav-item dropdown  mx-3">
+            <li class="nav-item dropdown  mx-3" style="min-width: 100px;">
                 <div class="dropdown">
 
                     <a href="#" class=" fs-7 nav-link line text-dark text-decoration-none"
                         data-bs-toggle="dropdown" aria-expanded="false">
                        {{Auth::user()->name}}
                     </a>
-                    <ul class="dropdown-menu dropdown-position overflow-hidden shadow custom-position-absolute rounded-lg" >
+                    <ul class="dropdown-menu dropdown-position overflow-hidden shadow custom-position-absolute rounded-lg" style="min-width: 190px;" >
                         <li>
                             <a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fa fa-user text-main mx-2" aria-hidden="true"></i>  {{__('lang.profile')}}</a>
                         </li>

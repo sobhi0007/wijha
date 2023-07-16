@@ -322,7 +322,7 @@
                             @forelse ($unit->reviews as $review)
                             <div class="row mx-1 ">
                                 <div class="col-1">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY3QVTWT0lrSx73oXNEjgAZV-npePWU0la-TD57prRrQ-ONw_BpVq-ketNJ7Jb-7uLZ2w&usqp=CAU"
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8p5zBoVhIU4l2QatLy_HKFgRSObs1PLFb0dndZnyK6E2vgQDmFPfGxhcJ_ZDYPXB0n1E&usqp=CAU"
                                         class="rounded-circle" width="50px" alt="" srcset="">
                                 </div>
                                 <div class="col-11">
