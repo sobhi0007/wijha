@@ -848,5 +848,32 @@ return [
     'wifi'=>'Wifi',
     'meter'=>'m',
     'unit_type'=>'Unit type',
-    'time_info' => 'Arrival and Departure Times'
+    'time_info' => 'Arrival and Departure Times',
+    'adv_sectioin'=>[
+        'title'=>'Benefits',
+        'desc'=>'Advantages and returns.',
+        'advertising'=>'Advertising',
+        'advertising_title'=>'Cost-effective, efficient advertisements',
+        'advertising_desc'=>'Through the free listing, you can advertise your rental without upfront costs.',
+        'offer'=>'Offers',
+        'offer_title'=>'Access millions with a destination',
+        'offer_desc'=>'Millions of people are searching for unique accommodations around the world.',
+        'safety'=>'Safety',
+        'safety_title'=>'Secure and straightforward',
+        'safety_desc'=>'Holiday listings provide a safe and easy way to make online bookings and payments.',
+    ],
+    'how_it_works'=>[
+        'title'=>'How it works',
+        'desc'=>'Stay Calm and Travel',
+        '1_title'=>'Save More',
+        '1_desc'=>'Get the best deals and save more on your inspiring journeys and tranquil stays.',
+        '2_title'=>'Smart Review System',
+        '2_desc'=>'Benefit from a smart review system that ensures inspiring trips and peaceful accommodations.',
+        '3_title'=>'Book and Relax',
+        '3_desc'=>'Keep calm, book your travel, and enjoy a relaxing experience with every journey and tranquil room.',
+    ],
+    'awesome_places' => [
+        'title' => 'Awesome Places for Accommodation',
+        'desc' => 'Famous places for accommodation recommended by your destination.',
+        ]
 ];

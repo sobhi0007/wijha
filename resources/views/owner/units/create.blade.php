@@ -155,6 +155,21 @@
                                     </select>
                                 </div>
                             </div>
+                             <div class="form-group col-12 col-md-3">
+                                <label class="form-label">{{ __('lang.bedrooms_number') }}</label>
+                                <div name="basic[bedrooms_number]">
+                                    <input  type="number" class="border form-control " name="basic[bedrooms_number]" id="bedrooms_number" placeholder="{{ __('lang.select_bedrooms_number') }}">
+                                       
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12 col-md-3">
+                                <label class="form-label">{{ __('lang.bathrooms_number') }}</label>
+                                <div name="basic[bathrooms_number]">
+                                    <input  type="number" class="border form-control " name="basic[bathrooms_number]" id="bathrooms_number" placeholder="{{ __('lang.select_bathrooms_number') }}">
+                                       
+                                </div>
+                            </div>
 
                             <div class="form-group col-12">
                                 <label class="form-label mb-0">{{ __('lang.pools') }}</label>
@@ -343,7 +358,7 @@
     </div>
 
     <script async src="https://maps.googleapis.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>"></script>
-    <script>
+        <script>
         let map;
         var markersArray = [];
 
@@ -362,13 +377,19 @@
             //     map,
             // });
 
-            google.maps.event.addListener(map, "click", (event) => {
-                addMarker(event.latLng, map);
-                document.getElementById("coordinates").value = event.latLng;
-            });
-        }
+                google.maps.event.addListener(map, "click", (event) => {
+                 addMarker(event.latLng, map);
 
-        function addMarker(location, map) {
+                 const coordinates = {
+                lat: event.latLng.lat(),
+                long: event.latLng.lng()
+                };
+
+                const jsonCoordinates = JSON.stringify(coordinates);
+                document.getElementById("coordinates").value = jsonCoordinates;
+                });
+            }
+           function addMarker(location, map) {
             clearOverlays();
             let marker = new google.maps.Marker({
                 position: location,

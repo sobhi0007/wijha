@@ -116,26 +116,24 @@
     </div>
     <div class="col-12 col-md-5">
       <div data-aos="fade-up">
-        <h6 class="mb-4 text-muted"><small>الفوائد</small> </h6>
-        <h1 class="mb-4 mt-2 ">المزايا و العوائد</h1>
+        <h6 class="mb-4 text-muted"><small>{{__('lang.adv_sectioin.title')}}</small> </h6>
+        <h1 class="mb-4 mt-2 ">{{__('lang.adv_sectioin.desc')}}</h1>
       </div>
 
       <div class=" mt-5" data-aos="zoom-in-up">
-        <span class=" mb-3 rounded-pill bg-custom-info text-primary  py-1 px-2 fs-6  ">الدعاية</span>
-        <h5 class="fw-bold mt-3"> إعلانات فعالة من حيث التكلفة </h5>
-        <h6 class="text-muted mt-3 mb-4 ">من خلال القائمة المجانية ، يمكنك الإعلان عن إيجارك بدون تكاليف مسبقة</h6>
+        <span class=" mb-3 rounded-pill bg-custom-info text-primary  py-1 px-2 fs-6  ">{{__('lang.adv_sectioin.advertising')}}</span>
+        <h5 class="fw-bold mt-3"> {{__('lang.adv_sectioin.advertising_title')}}</h5>
+        <h6 class="text-muted mt-3 mb-4 ">{{__('lang.adv_sectioin.advertising_desc')}}</h6>
       </div>
       <div class="mt-5" data-aos="zoom-in-up">
-        <span class="rounded-pill bg-custom-success text-success py-1 px-2 fs-6  ">العرض</span>
-        <h5 class="fw-bold mt-3"> يمكنك الوصول إلى الملايين مع وجهة</h5>
-        <h6 class="text-muted mt-3 mb-3 ">يبحث الملايين من الأشخاص عن أماكن فريدة للإقامة حول العالم</h6>
+        <span class="rounded-pill bg-custom-success text-success py-1 px-2 fs-6  ">{{__('lang.adv_sectioin.offer')}}</span>
+        <h5 class="fw-bold mt-3">{{__('lang.adv_sectioin.offer_title')}}</h5>
+        <h6 class="text-muted mt-3 mb-3 ">{{__('lang.adv_sectioin.offer_desc')}}</h6>
       </div>
       <div class="mt-5" data-aos="zoom-in-up">
-        <span class="  rounded-pill bg-custom-danger text-danger  py-1 px-2 fs-6  ">الامان</span>
-        <h5 class="fw-bold mt-3">آمن وبسيط</h5>
-        <h6 class="text-muted mt-3 mb-3 ">تمنحك قائمة إجازات العطلات طريقة آمنة وسهلة لإجراء الحجوزات والمدفوعات عبر
-          الإنترنت
-        </h6>
+        <span class="  rounded-pill bg-custom-danger text-danger  py-1 px-2 fs-6  ">{{__('lang.adv_sectioin.safety')}}</span>
+        <h5 class="fw-bold mt-3">{{__('lang.adv_sectioin.safety_title')}}</h5>
+        <h6 class="text-muted mt-3 mb-3 ">{{__('lang.adv_sectioin.safety_desc')}} </h6>
       </div>
     </div>
   </div>
@@ -143,8 +141,8 @@
 
 <div class="container-fluid px-5 my-5  bg-light rounded-lg my-5 py-5">
   <div class="my-5">
-    <h1>أماكن مميزة للإقامة</h1>
-    <h5 class="text-muted"> أماكن شهيرة للإقامة يوصي بها وجهة لك</h5>
+    <h1>{{__('lang.awesome_places.title')}}</h1>
+    <h5 class="text-muted">{{__('lang.awesome_places.desc')}}</h5>
   </div>
 
   <div>
@@ -157,31 +155,31 @@
 
 <div class="container-fluid px-5 my-5">
   <div class="d-flex justify-content-center">
-    <h1>كيف تعمل</h1>
+    <h1>{{__('lang.how_it_works.title')}}</h1>
   </div>
   <div class="d-flex justify-content-center text-muted mb-5">
-    <h5>حافظ على الهدوء والسفر</h5>
+    <h5>{{__('lang.how_it_works.desc')}}</h5>
   </div>
   <div class="row my-4 bg-sec-4">
     <div class="col-sm-4 col-12 text-center">
       <img src="./assets/images/homepage/section-4-image1.png" class="w-50" alt="" srcset="">
-      <div class="my-4 h4">احجز واسترخ</div>
-      <div class="text-muted h6">اجعل كل رحلة رحلة ملهمة ، ولكل غرفة مساحة هادئة</div>
+      <div class="my-4 h4">{{__('lang.how_it_works.1_title')}}</div>
+      <div class="text-muted h6">{{__('lang.how_it_works.1_desc')}}</div>
     </div>
     <div class="col-sm-4 col-12 text-center">
       <img src="./assets/images/homepage/section-4-image2.png" class="w-50 mb-lg-3" alt="" srcset="">
-      <div class="my-4 h4">قائمة مراجعة ذكية</div>
-      <div class="text-muted h6">اجعل كل رحلة رحلة ملهمة ، ولكل غرفة مساحة هادئة</div>
+      <div class="my-4 h4">{{__('lang.how_it_works.2_title')}}</div>
+      <div class="text-muted h6">{{__('lang.how_it_works.2_desc')}}</div>
     </div>
     <div class="col-sm-4 col-12 text-center">
       <img src="./assets/images/homepage/section-4-image3.png" class="w-50 my-lg-1" alt="" srcset="">
-      <div class="my-4 h4">احفظ أكثر</div>
-      <div class="text-muted h6">اجعل كل رحلة رحلة ملهمة ، ولكل غرفة مساحة هادئة</div>
+      <div class="my-4 h4">{{__('lang.how_it_works.3_title')}}</div>
+      <div class="text-muted h6">{{__('lang.how_it_works.3_desc')}}</div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid px-lg-5 my-5 ">
+{{-- <div class="container-fluid px-lg-5 my-5 ">
   <div class="row my-5">
     <div class="col-lg-6 col-12">
       <h1>انضم إلى النشرة الإخبارية لدينا 🎉</h1>
@@ -212,7 +210,7 @@
     </div>
 
   </div>
-</div>
+</div> --}}
 
 
 @if (Lang::locale()=='ar')

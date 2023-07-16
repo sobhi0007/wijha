@@ -168,7 +168,25 @@
                                     </select>
                                 </div>
                             </div>
+                         <div class="form-group col-12 col-md-3">
+                            <label class="form-label">{{ __('lang.bedrooms_number') }}</label>
+                            <div name="basic[bedrooms_number]">
+                                <input value="{{ $unit->bedrooms_number}}" type="number" class="border form-control "
+                                    name="basic[bedrooms_number]" id="bedrooms_number"
+                                    placeholder="{{ __('lang.select_bedrooms_number') }}">
 
+                            </div>
+                        </div>
+
+                        <div class="form-group col-12 col-md-3">
+                            <label class="form-label">{{ __('lang.bathrooms_number') }}</label>
+                            <div name="basic[bathrooms_number]">
+                                <input value="{{ $unit->bathrooms_number}}" type="number" class="border form-control "
+                                    name="basic[bathrooms_number]" id="bathrooms_number"
+                                    placeholder="{{ __('lang.select_bathrooms_number') }}">
+
+                            </div>
+                        </div>
                             <div class="form-group col-12">
                                 <label class="form-label mb-0">{{ __('lang.pools') }}</label>
                                 <div name="pools[]">
@@ -407,9 +425,16 @@
 
     <script async src="https://maps.googleapis.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>"></script>
     <script>
-        let map;
-        var coordinates = "<?php echo $unit->coordinates; ?>";
-        const array = coordinates.replace('(', '').replace(')', '').split(", ");
+    let map;
+        const dataFromDatabase =  '<?php echo $unit->coordinates; ?>';
+
+        // Parsing the string into a JavaScript object
+        const coordinates = JSON.parse(dataFromDatabase);
+
+        // Converting the object values to an array
+        const array = Object.values(coordinates);
+
+     
         var markersArray = [];
 
         async function initMap() {
@@ -430,11 +455,17 @@
             markersArray.push(currentMarker);
 
             google.maps.event.addListener(map, "click", (event) => {
-                addMarker(event.latLng, map);
-                document.getElementById("coordinates").value = event.latLng;
-            });
-        }
+                 addMarker(event.latLng, map);
 
+                 const coordinates = {
+                lat: event.latLng.lat(),
+                long: event.latLng.lng()
+                };
+
+                const jsonCoordinates = JSON.stringify(coordinates);
+                document.getElementById("coordinates").value = jsonCoordinates;
+                });
+            }
         function addMarker(location, map) {
             clearOverlays();
             let marker = new google.maps.Marker({
@@ -452,7 +483,7 @@
         }
 
         window.initMap = initMap;
-    </script>
+</script>
 @endsection
 
 @includeIf("$directory.scripts")

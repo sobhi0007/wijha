@@ -39,6 +39,8 @@ class OwnerUpdateUnitRequest extends FormRequest
             'basic.capacity_id'          => 'nullable|exists:capacities,id',
             'basic.person_id'            => 'nullable|exists:persons,id',
             'basic.badge_id'             => 'nullable|exists:badges,id',
+            'basic.bathrooms_number'      => 'required|numeric',
+            'basic.bedrooms_number'       => 'required|numeric',
             'pools'                      => 'nullable',
             'pools.*'                    => 'nullable',
             'views'                      => 'nullable',
