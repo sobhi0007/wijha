@@ -347,7 +347,7 @@
     height: 100%;
     padding: 20px 10px 30px;
     background: #303030;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: 'Tajawal', sans-serif;
     color: #fff;
     text-align: center;
     transition: transform 0.7s;
@@ -449,7 +449,7 @@
     background: rgba(0, 0, 0, 0.2);
   }
   .example-slider .fnc-slide__heading, .example-slider .fnc-slide__action-btn, .example-slider .fnc-nav__control {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: 'Tajawal', sans-serif;
   }
   /* COLORFUL SWITCH STYLES 
    ORIGINAL DEMO - https://codepen.io/suez/pen/WQjwOb */
