@@ -332,7 +332,7 @@
   .demo-cont {
     overflow: hidden;
     position: relative;
-    height: 85vh;
+    height: 85vh !important;
     perspective: 1500px;
     background: #000;
   }
