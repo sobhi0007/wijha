@@ -19,7 +19,7 @@ if (LaravelLocalization::getCurrentLocale() == 'ar') {
      <link href="{{asset('home-assets/rtl/fontawesome/css/brands.css')}}" rel="stylesheet">
      <link href="{{asset('home-assets/rtl/fontawesome/css/solid.css')}}" rel="stylesheet">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets') }}/images/favicon.png">
+    <link rel="shortcut icon"  href="{{ asset('assets/images/logo.png') }}">
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset("assets$lang") }}/css/simplebar.css">
     <!-- Fonts CSS -->
