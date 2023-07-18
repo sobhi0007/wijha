@@ -32,8 +32,8 @@ class Unit extends Model implements HasMedia
                     ->height(50);
                 $this
                     ->addMediaConversion('responsive')
-                    ->format('webp')
-                    ->fit(Manipulations::FIT_STRETCH, 600, 400);
+                    ->format('webp');
+                    // ->fit(Manipulations::FIT_STRETCH, 600, 400);
             });
     }
 
