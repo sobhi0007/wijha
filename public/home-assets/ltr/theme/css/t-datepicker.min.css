@@ -110,7 +110,7 @@
 }
 
 .t-datepicker-days {
-    width: 600px
+    width: 850px
 }
 
 .t-datepicker-days .t-table-wrap {
@@ -121,25 +121,35 @@
 
 @media (max-width:480px) {
     .t-datepicker-days {
-        width: 300px
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width: 400px;
     }
 
     .t-datepicker-days .t-table-wrap {
         margin-left: 0;
-        width: 100%;
         padding: 0 10px
     }
 }
 
 @media (max-width:320px) {
     .t-datepicker-days {
-        width: 290px
+        width: 300px;
+        right: -150px;
     }
 
+
+    .t-datepicker-day {
+        width: 300px;
+        right: -150px;
+
+    }
     .t-datepicker-days .t-table-wrap {
         padding: 0 5px
     }
 }
+
 
 .t-table-condensed {
     width: 100%;

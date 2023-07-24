@@ -218,40 +218,6 @@
   </div>
 </div>
 
-{{-- <div class="container-fluid px-lg-5 my-5 ">
-  <div class="row my-5">
-    <div class="col-lg-6 col-12">
-      <h1>انضم إلى النشرة الإخبارية لدينا 🎉</h1>
-      <div class="text-sm text-muted mb-4">
-        اقرأ وشارك وجهات النظر الجديدة حول أي موضوع. نرحب بالجميع.
-      </div>
-      <div class="my-5">
-        <div class=" my-3 "><span class="rounded-pill bg-custom-info text-primary  py-1 px-3  me-2 ">01</span><span
-            class="">احصل على المزيد من الخصم</span></div>
-        <div class=" my-3 "><span class="rounded-pill bg-custom-danger text-danger  py-1 px-3  me-2">02</span><span
-            class="">احصل على مجلات متميزة</span></div>
-      </div>
-
-
-      <form class="d-flex col-8 position-relative">
-        <input class="form-control me-2 col-6 rounded-lg" type="email" placeholder="ادخل البريد الالكتروني"
-          aria-label="email">
-        <button type="submit"
-          class="text-dark rounded-circle  bg-main position-absolute  bottom-0 start-5 border-0 py-1 mb-1 me-1 px-2  mt-2 border-none"
-          type="submit"><i class="text-light fa-solid fa-arrow-right"></i></button>
-      </form>
-
-
-    </div>
-
-    <div class="col-6">
-      <img loading="lazy" src="./assets/images/homepage/section-5-image.png" alt="" srcset="" class="img-fluid">
-    </div>
-
-  </div>
-</div> --}}
-
-
 @if (Lang::locale()=='ar')
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -263,8 +229,47 @@
    
 </script>
 
+
+
+
+
 <script>
   // datepicker options
+
+   function windowSize() {
+    if (window.matchMedia('screen and (max-width: 572px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 792px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 992px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 1200px)').matches) {
+      // If you need to do something specific for this screen size, you can add code here.
+    } else {
+      return 2;
+    }
+  }
+
+  window.addEventListener('resize', function () {
+    // Call the function whenever the window is resized
+    $('.t-datepicker').tDatePicker({
+    iconDate: '<i class="fa-regular fa-calendar text-muted h5 "></i>',
+    arrowPrev: '<i class="fa fa-chevron-left"></i>',
+    titleDays: ['الاثنين','الثلاثاء','الاربعاء','الخميس','الجمعه','السبت','الاحد'],
+    arrowNext: '<i class="fa fa-chevron-right"></i>',
+    numCalendar    :   windowSize(),
+    titleCheckIn: 'موعد الوصول',
+    titleDateRanges: 'ليال',
+    titleMonths: ['يناير','فبراير','مارس','ابريل','مايو','يونيو','يوليو','اغسطس','سيبتمبر','اكتوبر','نوفمبر','ديسمبر'],
+    titleDateRange: 'ليله',
+    titleToday: 'الليله',
+    titleCheckOut: 'موعد المغادرة',
+    language:"en-AU" ,
+    startDate: '',
+    endDate: '',
+    });
+  });
+
  $(document).ready(function(){
     // Call global the function
     $('.t-datepicker').tDatePicker({
@@ -291,39 +296,39 @@
   integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
 
 <script>
-  function windowSize(){
+  function windowSize() {
+    if (window.matchMedia('screen and (max-width: 572px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 792px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 992px)').matches) {
+      return 1;
+    } else if (window.matchMedia('screen and (max-width: 1250px)').matches) {
+       return 1;
+    } else {
+      return 2;
+    }
+  }
 
-if (window.matchMedia('screen and (max-width: 572px)').matches) {
-
-  return 1
-}else if (window.matchMedia('screen and (max-width: 792px)').matches) {
-
-    return 1
-}else if(window.matchMedia('screen and (max-width: 992px)').matches) {
-
-    return 1
-}else if (window.matchMedia('screen and (max-width: 1200px )').matches){
-
-}else{
- 
-    return 2
-}
-}
-
-window.addEventListener('windowSize', windowSize);
-windowSize();
-   $(document).ready(function(){
-      // Call global the function
-      $('.t-datepicker').tDatePicker({
-     iconDate: '<i class="fa-regular fa-calendar text-muted h5 "></i>',
-  
-     arrowPrev: '<i class="fa fa-chevron-left"></i>',
-     numCalendar    :   windowSize(),
-     arrowNext: '<i class="fa fa-chevron-right"></i>',
-     
-  
-      });
+  window.addEventListener('resize', function () {
+    // Call the function whenever the window is resized
+    $('.t-datepicker').tDatePicker({
+      iconDate: '<i class="fa-regular fa-calendar text-muted h5 "></i>',
+      arrowPrev: '<i class="fa fa-chevron-left"></i>',
+      numCalendar: windowSize(),
+      arrowNext: '<i class="fa fa-chevron-right"></i>',
     });
+  });
+
+  // Initial call to set the correct size when the page loads
+  $(document).ready(function () {
+    $('.t-datepicker').tDatePicker({
+      iconDate: '<i class="fa-regular fa-calendar text-muted h5 "></i>',
+      arrowPrev: '<i class="fa fa-chevron-left"></i>',
+      numCalendar: windowSize(),
+      arrowNext: '<i class="fa fa-chevron-right"></i>',
+    });
+  });
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
