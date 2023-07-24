@@ -70,11 +70,17 @@ class BookingController extends Controller
         $start   = $data['start'] ?? null;
         $end     = $data['end'] ?? null;
         $word    = $data['word'] ?? null;
+        $phone   = $data['phone'] ?? null;
         $status  = $data['status'] ?? null;
 
         $data = Booking::when($word != null, function ($q) use ($word) {
             $q->where('reference_number', 'like', '%' . $word . '%');
         })
+            ->when($phone != null, function ($q) use ($phone) {
+                $q->whereHas('user', function ($qu) use ($phone) {
+                    $qu->where('phone', $phone);
+                });
+            })
             ->when($status != null, function ($q) use ($status) {
                 $q->where('status', $status);
             })
@@ -174,30 +180,29 @@ class BookingController extends Controller
         switch ($data['status']) {
 
             case BookingStatus::APPROVED->value:
-              $user->notify( new Reservation($unit , $user , __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks')));
-              $this->sendFCMNotification( __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks'),$user);
-            break;
+                $user->notify(new Reservation($unit, $user, __('lang.booked_success_title'), __('lang.booked_success_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $this->sendFCMNotification(__('lang.booked_success_title'), __('lang.booked_success_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                break;
 
             case BookingStatus::CANCELLED->value:
-                $user->notify( new Reservation($unit , $user , __('lang.booked_cancelled_title'), __('lang.booked_cancelled_body').' '.$unit->title.' '.__('lang.thanks')));
-                $this->sendFCMNotification( __('lang.booked_cancelled_title'), __('lang.booked_cancelled_body').' '.$unit->title.' '.__('lang.thanks'),$user);
-            break;
+                $user->notify(new Reservation($unit, $user, __('lang.booked_cancelled_title'), __('lang.booked_cancelled_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $this->sendFCMNotification(__('lang.booked_cancelled_title'), __('lang.booked_cancelled_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                break;
 
             case BookingStatus::COMPLETED->value:
-                $user->notify( new Reservation($unit , $user , __('lang.booked_completed_title'), __('lang.booked_completed_body').' '.$unit->title.' '.__('lang.thanks')));
-                $this->sendFCMNotification( __('lang.booked_completed_title'), __('lang.booked_completed_body').' '.$unit->title.' '.__('lang.thanks'),$user);
-            break;
+                $user->notify(new Reservation($unit, $user, __('lang.booked_completed_title'), __('lang.booked_completed_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $this->sendFCMNotification(__('lang.booked_completed_title'), __('lang.booked_completed_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                break;
 
             case BookingStatus::PENDING->value:
-                $user->notify( new Reservation($unit , $user , __('lang.booked_pending_title'), __('lang.booked_pending_body').' '.$unit->title.' '.__('lang.thanks')));
-                $this->sendFCMNotification( __('lang.booked_pending_title'), __('lang.booked_pending_body').' '.$unit->title.' '.__('lang.thanks'),$user);
-            break;
+                $user->notify(new Reservation($unit, $user, __('lang.booked_pending_title'), __('lang.booked_pending_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $this->sendFCMNotification(__('lang.booked_pending_title'), __('lang.booked_pending_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                break;
 
             case BookingStatus::REJECTED->value:
-                $user->notify( new Reservation($unit , $user , __('lang.booked_rejected_title'), __('lang.booked_rejected_body').' '.$unit->title.' '.__('lang.thanks')));
-                $this->sendFCMNotification( __('lang.booked_rejected_title'), __('lang.booked_rejected_body').' '.$unit->title.' '.__('lang.thanks'),$user);
-            break;
-          
+                $user->notify(new Reservation($unit, $user, __('lang.booked_rejected_title'), __('lang.booked_rejected_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $this->sendFCMNotification(__('lang.booked_rejected_title'), __('lang.booked_rejected_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                break;
         }
 
 
@@ -219,38 +224,36 @@ class BookingController extends Controller
 
 
 
-    
-  protected function sendFCMNotification($title , $body,$user)
-  {
-    
-      $firebaseToken = array($user->fcm_token) ;
-        
-      $SERVER_API_KEY = 'AAAAuU4C0eo:APA91bFzRVlCxfg_9X4D1kBNr6wqqdUmcQBRZMqoYXAzMjezGp8CZobqoMZj7X0fUzWzOB_GArT6IfnDcdvlpPDTbBRcsgL9nbEd8TcCvmOyiMXbKQSUBbMzKb-xD2BDH8EUVpk7BNHJ';
 
-      $data = [
-          "registration_ids" => $firebaseToken,
-          "notification" => [
-              "title" => $title,
-              "body" => $body,  
-          ]
-      ];
-      $dataString = json_encode($data);
-  
-      $headers = [
-          'Authorization: key=' . $SERVER_API_KEY,
-          'Content-Type: application/json',
-      ];
-  
-      $ch = curl_init();
-    
-      curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-      $response = curl_exec($ch);
-  
+    protected function sendFCMNotification($title, $body, $user)
+    {
 
-  }
+        $firebaseToken = array($user->fcm_token);
+
+        $SERVER_API_KEY = 'AAAAuU4C0eo:APA91bFzRVlCxfg_9X4D1kBNr6wqqdUmcQBRZMqoYXAzMjezGp8CZobqoMZj7X0fUzWzOB_GArT6IfnDcdvlpPDTbBRcsgL9nbEd8TcCvmOyiMXbKQSUBbMzKb-xD2BDH8EUVpk7BNHJ';
+
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => $title,
+                "body" => $body,
+            ]
+        ];
+        $dataString = json_encode($data);
+
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+        $response = curl_exec($ch);
+    }
 }

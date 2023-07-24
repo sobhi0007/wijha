@@ -6,13 +6,20 @@
 
     <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label class="label-filter">{{ __('lang.word') }}</label>
             <input type="text" name="word" class="form-control"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.word') }}" value="{{ request()->input('word') }}">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
+            <label class="label-filter">{{ __('lang.phone') }}</label>
+            <input type="text" name="phone" class="form-control"
+                placeholder="{{ __('lang.please_enter') }} {{ __('lang.phone') }}"
+                value="{{ request()->input('phone') }}">
+        </div>
+
+        <div class="col-md-6">
             <label class="label-filter">{{ __('lang.status') }}</label>
             <select class="form-control select2" name="status" style="width: 100%">
                 <option value="" selected>{{ __('lang.select_status') }}</option>
@@ -23,7 +30,7 @@
             </select>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label class="label-filter">{{ __('lang.date') }}</label>
             <div class="input-daterange input-group" id="datepicker6" data-date-format="yyyy-mm-dd"
                 data-date-autoclose="true" data-provide="datepicker" data-date-container='#datepicker6'>
