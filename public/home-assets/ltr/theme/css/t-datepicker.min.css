@@ -11,7 +11,7 @@
     width: 100%;
     font-size: 14px;
     line-height: 1.4em;
-    max-width: 650px
+    /* max-width: 650px */
 }
 
 .t-check-in,
@@ -119,21 +119,8 @@
     margin-left: 2%
 }
 
-@media (max-width:480px) {
-    .t-datepicker-days {
-        width: 400px;
-    }
-    .t-datepicker-day {
-        width: 400px;
-    }
 
-    .t-datepicker-days .t-table-wrap {
-        margin-left: 0;
-        padding: 0 10px
-    }
-}
-
-@media (max-width:320px) {
+@media (min-width:320px) {
     .t-datepicker-days {
         width: 300px;
         right: -150px;
@@ -150,6 +137,54 @@
     }
 }
 
+@media (min-width:480px) {
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width: 400px;
+        right: -100%;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+
+@media (min-width:555px) {
+    .t-datepicker-days {
+        width: 400px;
+        right: -150px;
+    }
+
+
+    .t-datepicker-day {
+        width: 390px;
+        right: -197px;
+    }
+    .t-datepicker-days .t-table-wrap {
+        padding: 0 5px
+    }
+}
+
+
+@media (min-width:1250px) {
+    .t-datepicker-days {
+        width: 400px;
+        right: -150px;
+    }
+
+
+    .t-datepicker-day {
+        width: 785px;
+        right: -334px;
+    }
+    .t-datepicker-days .t-table-wrap {
+        padding: 0 5px
+    }
+}
 
 .t-table-condensed {
     width: 100%;
