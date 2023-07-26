@@ -148,7 +148,7 @@ class UnitController extends Controller
 
 
         }
-        $wishlists= !auth()->user()?[]:auth()->user()->wishlist;
+        $wishlists= !auth()->user()?[]:auth()->user()->wishlist->pluck('unit_id')->toArray();
         return view('home.ownerUnits') 
         ->with('units',$units)
         ->with('owner',$owner)

@@ -196,6 +196,19 @@
               
             </div>
 
+
+            <div class="card mb-3 rounded-lg col-12  overflow-hidden p-4">
+                <h4 class="fw-bold mt-4"> {{__('lang.location_on_map')}}</h4>
+                <hr width="10%" class="my-4">
+
+                <div class="col-12 ">
+                    <div class="my-3">
+                    <a class="text-decoration-none" href="https://www.google.com/maps?q={{$units[0]['lat']}},{{$units[0]['long']}}">{{__('lang.see_location_on_map')}}</a>
+                    </div>
+                    <div wire:ignore id="map" class=" rounded-lg is-sticky"></div>
+                </div>
+            </div>
+
             <div class="col-12">
                 <div class="card mb-3 rounded-lg col-12  overflow-hidden ">
                     <div class="row g-0">
@@ -266,5 +279,78 @@
             </div>
         </div>
     </div>
+    <!-- end main container  -->
+
+    <?php
+
+$x=[];
+foreach ($units as $unit) {
+    $x[]= array(
+    $unit->price.' '.__('lang.currency'),
+    $unit->lat,
+    $unit->long,
+    $unit->html
+    );
+}
+
+
+
+?>
+    {{-- {{dd($units)}} --}}
+    @if(count($units)>0)
+    <script type="text/javascript">
+        function loadMap() {
+            
+            
+            // Your JS here.
+            var smoothPanInterval;
+
+            function initMap(lat ={{$units[0]['lat']}}, lng = {{$units[0]['long']}}, zoom = 9) {
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat, lng },
+                    zoom: zoom,
+                    // mapTypeId: "satellite",
+                });
+
+  
+                var locationDivs = document.getElementsByClassName("location-div");
+                Array.from(locationDivs).forEach((div) => {
+                    div.addEventListener("mouseover", function () {
+                        var lat = parseFloat(this.getAttribute("data-lat"));
+                        var lng = parseFloat(this.getAttribute("data-lng"));
+                        cancelSmoothPan();
+                        smoothPanTo(map, lat, lng, 12);
+                    });
+                });
+
+                var locations = <?php echo json_encode($x) ?>;
+                var infowindow = new google.maps.InfoWindow();
+                var marker , i;
+        
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        animation: google.maps.Animation.BOUNCE,
+                      
+                        map: map
+                    });
+
+                 
+                }
+            }
+
+         
+
+            window.initMap = initMap;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://maps.google.com/maps/api/js?key={{env('MAP_API_KEY')}}&callback=initMap&language=<?=Lang::locale()?>';
+            document.head.appendChild(script);
+        }
+
+        loadMap();
+        window.livewire.on('bedroomUpdated', loadMap);
+    </script>
+    @endif
 
 </x-app-layout>

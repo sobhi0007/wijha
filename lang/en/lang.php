@@ -879,4 +879,6 @@ return [
     'reservation_details'=>'Reservation Details',
     'response_rate'=>'Response rate',
     'fast_response'=>'Fast response - within a few hours',
+    'location_on_map'=>'The Location Coordinates on the Map',
+    'see_location_on_map'=>'Explore the Location in Detail on Google Maps'
 ];

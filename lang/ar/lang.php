@@ -906,6 +906,8 @@ return [
     'reservation_details'=>'تفاصل الحجز',
     'response_rate'=>'معدل الاستجابة',
     'fast_response'=>'الاستجابة السريعة - في غضون ساعات قليلة',
+    'location_on_map'=>'احداثيات الموقع على الخريطة',
+    'see_location_on_map'=>'اعرف الموقع بالتفصيل على  خريطه جوجل'
 
     
 ];
