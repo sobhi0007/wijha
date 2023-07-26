@@ -83,6 +83,11 @@ class Payment extends Model
 
 
     ##--------------------------------- CUSTOM FUNCTIONS
+    public function percentageAmount()
+    {
+        $percentage = (Auth::guard('owner')->user()->percentage ?? 100) / 100;
+        return $this->amount * $percentage;
+    }
 
 
     ##--------------------------------- SCOPES

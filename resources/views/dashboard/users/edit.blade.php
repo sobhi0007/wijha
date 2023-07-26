@@ -50,7 +50,8 @@
             <div class="form-group col-12 col-md-12">
                 <label class="form-label">{{ __('lang.percentage') }} %</label>
                 <input type="number" step="0.01" min="1" class="border form-control" name="percentage"
-                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.percentage') }}...">
+                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.percentage') }}..."
+                    value="{{ $user->percentage }}">
             </div>
         @endif
     </div>

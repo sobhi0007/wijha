@@ -18,7 +18,7 @@
 
     <div class="form-group col-12 col-md-4">
         <label class="form-label">{{ __('lang.amount') }} {{ lang('currency') }}</label>
-        <p class="border form-control">{{ $payment->amount ?? '--' }}</p>
+        <p class="border form-control">{{ $payment->percentageAmount() ?? '--' }}</p>
     </div>
 
     <div class="form-group col-12 col-md-4">

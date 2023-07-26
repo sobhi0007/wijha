@@ -42,7 +42,7 @@
                                     <td>{{ $data['data']->firstItem() + $loop->index }}</td>
                                     <td>{{ $item->booking?->reference_number }}</td>
                                     <td>{{ $item->booking?->unit?->code }}</td>
-                                    <td>{{ $item->amount }}</td>
+                                    <td>{{ $item->percentageAmount() }}</td>
                                     <td>{{ $item->payment_method }}</td>
                                     <td>
                                         <span class="badge {{ $item->status->color() }} text-white">
