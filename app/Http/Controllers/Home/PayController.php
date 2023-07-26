@@ -64,8 +64,8 @@ class PayController extends Controller
       ]);
 
       // $userSessionId = Session::getId();
-      $this->sendFCMNotification( __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks'));
-      auth()->user()->notify( new Reservation($unit , auth()->user() , __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks')));
+      $this->sendFCMNotification( __('lang.booked_pending_title'),  __('lang.booking_pending_intro_body').' '.$unit->title.' '.__('lang.booking_pending_desc_body'));
+      auth()->user()->notify( new Reservation($booking , auth()->user() , __('lang.booked_pending_title'), __('lang.booking_pending_intro_body').' '.$unit->title.' '.__('lang.booking_pending_desc_body')));
      
       return redirect()->to(  URL::temporarySignedRoute(
         'home.paymentSuccess', now()->addMinutes(1))

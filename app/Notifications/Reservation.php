@@ -51,9 +51,9 @@ class Reservation extends Notification
         $url = env('APP_URL');
         return (new MailMessage)
         ->subject($this->title)
-        ->line(__('lang.greeting').$this->user->name.','.$this->body.' '.$this->unit->title.'.'.__('lang.thanks_service'))
-        // ->action('Notification Action', url('/'))
-        ->line(__('lang.thanks_for'))
+        ->greeting(__('lang.greeting').$this->user->name.' !')
+        ->line($this->body)
+        ->line(__('lang.wish_you_a_good_day'))
       ;
     }
 

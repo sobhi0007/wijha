@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'regards' => 'Best regards,',
+    'app_name'=>'Wijha',
     'service_charge' => 'Service charge',
     'reserve' => 'Reserve',
     'places' => 'places',
@@ -754,6 +756,9 @@ return [
     'payment_fail' => 'Payment was declined',
     'payment_success_message' => 'Thank you for your payment. Your booking has been confirmed.',
     'payment_success' => 'Transaction completed successfully',
+    'booking_pending_intro_body' => 'We hope you are in good health and well-being. We would like to inform you that a booking request for a unit at ',
+    'booking_pending_desc_body' => 'has been received, and the booking amount has been successfully paid. The provided data is currently being reviewed, and the booking will be confirmed as soon as possible. Thank you for choosing our service and trusting us. We look forward to providing you with the best services.',
+    'wish_you_a_good_day' => 'Wish you a good day!',
     'booked_success_title' => 'Unit booked successfully',
     'booked_cancelled_title' => 'Unit booking cancelled successfully',
     'booked_completed_title' => 'Unit booking approved successfully',
@@ -762,7 +767,6 @@ return [
     'booked_success_body' => 'Unit booking successfully completed at ',
     'booked_cancelled_body' => 'Unit booking successfully cancelled at ',
     'booked_completed_body' => 'Unit booking successfully approved at ',
-    'booked_pending_body' => 'Unit booking is pending at ',
     'booked_rejected_body' => 'Unit booking successfully rejected at ',
     'thanks' => ' Thank you for choosing our service.',
     'paid' => 'Paid',
