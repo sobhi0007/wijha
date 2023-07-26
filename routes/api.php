@@ -77,7 +77,10 @@ Route::group(['middleware' => ['SecretKey', 'CheckLang']], function () {
         Route::get('/wishlist', [WishlistController::class, 'belongsToUser']);
         Route::post('/wishlist/add', [WishlistController::class, 'addUnit']);
         Route::post('/wishlist/remove', [WishlistController::class, 'removeUnit']);
-        Route::get('/notifications', [NotificationController::class, 'belongsToUser']);
+        Route::get('/notifications', [NotificationController::class, 'belongsToUser'])->name('notifications.all');
+        Route::post('/notifications/mark-all-as-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.mark-all-as-read');
+        Route::post('/notifications/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-as-read');
+
     });
 });
 

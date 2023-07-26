@@ -93,7 +93,7 @@
     z-index: 1;
     position: absolute;
     right: 60%;
-    top: 15%;
+    top: 8%;
     width: 50.25vh;
     height: 67vh;
     margin-right: -90px;
@@ -332,7 +332,7 @@
   .demo-cont {
     overflow: hidden;
     position: relative;
-    height: 85vh !important;
+    height: 78vh !important;
     perspective: 1500px;
     background: #000;
   }

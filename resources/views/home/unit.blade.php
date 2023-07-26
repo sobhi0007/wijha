@@ -289,16 +289,17 @@
                                         lounge, a garden and barbecue facilities.</span>
 
 
-                                    <div class="row my-4">
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
-                                            .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-solid fa-message fa-fw me-1"></i> Response rate - 100%</div>
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-solid fa-clock fa-fw me-1"></i> Fast response - within a few
-                                            hours </div>
-                                    </div>
+                                        <div class="row my-4">
+                                            <div class="col-12 text-muted my-1 "><i
+                                                class="fa fa-envelope fa-fw me-1"></i> <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a></div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
+                                                .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-solid fa-message fa-fw me-1"></i> {{__('lang.response_rate')}} - 100%</div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-solid fa-clock fa-fw me-1"></i> {{__('lang.fast_response')}}  </div>
+                                        </div>
                                     <hr class="my-4 " width="10%">
 
                                     <a href="{{route('owner.units',['user'=>$unit->user->id])}}"
@@ -402,7 +403,7 @@
                                 </ul>
                             </div>
                             @endif
-                            <div class="row pt-5">
+                            <div class="col-12 row pt-5">
                                 <div class="col-6"><span class="text-muted h6">
                                         <span id="price">{{$unit->price}}</span>
                                         {{__('lang.currency')}}
@@ -447,6 +448,126 @@
 <!-- lightbox js -->
 <script src="{{asset('assets/lightbox/dist/js/lightbox-plus-jquery.min.js')}}"></script>
 @if(Lang::locale()=='ar')
+<style>
+@media (min-width:360px) {
+    .t-check-out .t-datepicker-day {
+        right: -126% !important;
+    }
+
+    .t-datepicker-day {
+        width:355px;
+         right: -24% !important;
+    }
+    .t-datepicker-days .t-table-wrap {
+        padding: 0 5px
+    }
+}
+
+@media (min-width:480px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width:355px;
+        right: 14% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:575px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width:455px;
+        right: 14% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:720px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width:540px;
+        right: 14% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:1200px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -176% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width:434px;
+        right: -75% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:1745px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -95% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width:545px;
+        right: -1% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+</style>
 <script>
     // datepicker options
      $(document).ready(function(){
@@ -470,11 +591,199 @@
         language:"en-AU" ,
         // startDate: '2023-05-13',
         // endDate: '2023-05-18',
-        // daysOfWeekHighlighted: [6,7],
+         daysOfWeekHighlighted: [6,7],
         });
       });
 </script>
 @else
+<style>
+@media (min-width:360px) {
+    .t-check-out .t-datepicker-day {
+        right: -126% !important;
+    }
+
+    .t-datepicker-day {
+    width: 325px;
+    right: -116% !important;
+    }
+    .t-datepicker-days .t-table-wrap {
+        padding: 0 5px
+    }
+}
+
+@media (min-width:460px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+        width: 450px;
+        right: -112% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:550px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+     width: 520px;
+    right: -110% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:650px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+      width: 617px;
+    right: -108% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+
+@media (min-width:760px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -88% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+     width: 730px;
+    right: -107% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:1050px) {
+
+
+    .t-check-out .t-datepicker-day {
+        right: -176% !important;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+    width: 900px;
+    right: -98% !important;
+
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+@media (min-width:1200px) {
+
+
+    .t-check-out .t-datepicker-day {
+     left: -160%;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+     width: 400px;
+    right: -135% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+
+@media (min-width:1328px) {
+
+
+    .t-check-out .t-datepicker-day {
+    left: -83%;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+     width: 400px;
+    right: -105% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+
+@media (min-width:1777px) {
+
+
+    .t-check-out .t-datepicker-day {
+    left: -83%;
+    }
+
+    .t-datepicker-days {
+        width: 400px;
+    }
+    .t-datepicker-day {
+   width: 499px;
+    right: -70% !important;
+    }
+
+    .t-datepicker-days .t-table-wrap {
+        margin-left: 0;
+        padding: 0 10px
+    }
+}
+
+</style>
 <script>
     $(document).ready(function(){
       // Call global the function

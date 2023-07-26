@@ -30,9 +30,36 @@ class NotificationController extends Controller
     if (!$token) {
       return $this->APIResponse(null, null, 422, false, 'Token not found');
     }
-
-
-    return $this->APIResponse( $token->tokenable->notifications, null, 200, true, 'User\'s wishlist');
+    return $this->APIResponse( $token->tokenable->unreadNotifications, null, 200, true, 'Unread Notifications');
   }
+
+  public function markAllAsRead(Request $request){
+    $bearerToken = $request->token;
+    $token = PersonalAccessToken::findToken($bearerToken);
+    if (!$token) {
+      return $this->APIResponse(null, null, 422, false, 'Token not found');
+    }
+    $token->tokenable->unreadNotifications->markAsRead();
+    return $this->APIResponse( null, null, 200, true, 'All notifications marked as read');
+  }
+  
+  public function markAsRead(Request $request){
+    $bearerToken = $request->token;
+    $token = PersonalAccessToken::findToken($bearerToken);
+    if (!$token) {
+      return $this->APIResponse(null, null, 422, false, 'Token not found');
+    }
+
+    $notification = $token->tokenable->unreadNotifications()->find($request->id);
+
+    if (!$notification) {
+      return $this->APIResponse( null, null, 404, true, 'Notification not found');
+    }
+
+    $notification->markAsRead();
+
+    return $this->APIResponse( null, null, 200, true, 'Notification marked as read');
+  }
+
 
 }

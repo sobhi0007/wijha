@@ -83,7 +83,7 @@
                             <!-- end slider -->
                         </div>
                         <div class="col-md-7">
-                            <a {{--href="route('unit.show',$booking->unit->code)--}}"
+                            <a href="{{route('user.reservations.details',$booking->id)}}"
                                 class="text-decoration-none text-dark">
                                 <div class="card-body">
 

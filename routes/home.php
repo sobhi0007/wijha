@@ -49,6 +49,7 @@ Route::post('/send-notification', [HomeController::class, 'sendNotification'])->
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/reservations', [App\Http\Controllers\User\ReservationController::class, 'index'])->name('user.reservations');
+    Route::get('/user/reservations/{booking:id}/details', [App\Http\Controllers\User\ReservationController::class, 'reservationDetails'])->name('user.reservations.details');
     Route::get('/user/wishlist', [WishlistController::class, 'index'])->name('user.wishlist');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
