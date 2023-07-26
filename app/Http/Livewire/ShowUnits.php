@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\City;
 use App\Models\Unit;
+use Livewire\Component;
+use App\Enums\UnitStatus;
+use App\Enums\UnitActivation;
 
 class ShowUnits extends Component
 {
@@ -34,7 +36,8 @@ public function getCity($btn='')
          if($this->btn == ''){
             $this->btn =  City::where('featured',1)->get('slug')->first()['slug'];
             $city =  City::where('slug', $this->btn)->get()->first();
-            $this->units = Unit::where('city_id',$city->id)->get();
+            $this->units = Unit::where('city_id',$city->id) ->where('units.status', '=', UnitStatus::PUBLISHED->value)
+            ->where('units.activation', '=', UnitActivation::ACTIVE->value) ->latest('created_at')->take(8)->get();
         }
         $units = $this->units;
         $num=0;
@@ -48,8 +51,6 @@ public function getCity($btn='')
            $num++;
            
         }
-        // $this->wishlists ='';
-        // if(auth()->user()) $this->wishlists = auth()->user()->wishlist()->pluck('unit_id')->toArray();
         return view('livewire.show-units');
     }
 }
