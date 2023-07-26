@@ -45,6 +45,14 @@
             <input type="password" class="border form-control" name="password_confirmation"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.password_confirmation') }}...">
         </div>
+
+        @if ($user->type == App\Enums\UserType::OWNER)
+            <div class="form-group col-12 col-md-12">
+                <label class="form-label">{{ __('lang.percentage') }} %</label>
+                <input type="number" step="0.01" min="1" class="border form-control" name="percentage"
+                    placeholder="{{ __('lang.please_enter') }} {{ __('lang.percentage') }}...">
+            </div>
+        @endif
     </div>
     {{-- MODIFICATIONS TO HERE --}}
 

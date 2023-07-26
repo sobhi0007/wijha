@@ -32,6 +32,7 @@ class User extends Authenticatable
         'phone',
         'fcm_token',
         'type',
+        'percentage',
         'approval',
     ];
 
