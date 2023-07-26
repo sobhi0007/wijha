@@ -52,8 +52,9 @@ class Reservation extends Notification
         return (new MailMessage)
         ->subject($this->title)
         ->line(__('lang.greeting').$this->user->name.','.$this->body.' '.$this->unit->title.'.'.__('lang.thanks_service'))
-        ->action('Notification Action', url('/'))
-        ->line(__('lang.thankys_for'));
+        // ->action('Notification Action', url('/'))
+        ->line(__('lang.thanks_for'))
+      ;
     }
 
     /**
