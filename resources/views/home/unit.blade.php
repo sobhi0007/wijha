@@ -289,16 +289,17 @@
                                         lounge, a garden and barbecue facilities.</span>
 
 
-                                    <div class="row my-4">
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
-                                            .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-solid fa-message fa-fw me-1"></i> Response rate - 100%</div>
-                                        <div class="col-12 text-muted my-1 "><i
-                                                class="fa-solid fa-clock fa-fw me-1"></i> Fast response - within a few
-                                            hours </div>
-                                    </div>
+                                        <div class="row my-4">
+                                            <div class="col-12 text-muted my-1 "><i
+                                                class="fa fa-envelope fa-fw me-1"></i> <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a></div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
+                                                .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-solid fa-message fa-fw me-1"></i> {{__('lang.response_rate')}} - 100%</div>
+                                            <div class="col-12 text-muted my-1 "><i
+                                                    class="fa-solid fa-clock fa-fw me-1"></i> {{__('lang.fast_response')}}  </div>
+                                        </div>
                                     <hr class="my-4 " width="10%">
 
                                     <a href="{{route('owner.units',['user'=>$unit->user->id])}}"

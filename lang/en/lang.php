@@ -875,5 +875,8 @@ return [
     'awesome_places' => [
         'title' => 'Awesome Places for Accommodation',
         'desc' => 'Famous places for accommodation recommended by your destination.',
-        ]
+    ],
+    'reservation_details'=>'Reservation Details',
+    'response_rate'=>'Response rate',
+    'fast_response'=>'Fast response - within a few hours',
 ];
