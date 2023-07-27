@@ -2,15 +2,16 @@
 
 namespace App\Notifications;
 
+use App\Enums\BookingStatus;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\MailMessage;
 
 class Reservation extends Notification
 {
     use Queueable;
 
-    private $unit;
+    private $booking;
     private $user;
     private $title;
     private $body;
@@ -19,9 +20,9 @@ class Reservation extends Notification
      *
      * @return void
      */
-    public function __construct($unit,$user,$title,$body)
+    public function __construct($booking,$user,$title,$body)
     {
-            $this->unit = $unit;
+            $this->booking = $booking;
             $this->user = $user;
             $this->title = $title;
             $this->body = $body;
@@ -49,12 +50,16 @@ class Reservation extends Notification
      
 
         $url = env('APP_URL');
-        return (new MailMessage)
-        ->subject($this->title)
-        ->greeting(__('lang.greeting').$this->user->name.' !')
-        ->line($this->body)
-        ->line(__('lang.wish_you_a_good_day'))
-      ;
+        $mail = (new MailMessage)
+            ->subject($this->title)
+            ->greeting(__('lang.greeting').$this->user->name.' !')
+            ->line($this->body);
+    
+        if ($this->booking->status->value === BookingStatus::APPROVED->value) {
+             $mail->action(__('lang.see_booking_unit_info'), route('user.reservations.details',['booking'=>$this->booking->id]));
+        }
+
+        return $mail->line(__('lang.wish_you_a_good_day'));
     }
 
     /**

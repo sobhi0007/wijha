@@ -180,27 +180,27 @@ class BookingController extends Controller
         switch ($data['status']) {
 
             case BookingStatus::APPROVED->value:
-                $user->notify(new Reservation($unit, $user, __('lang.booked_success_title'), __('lang.booked_success_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
-                $this->sendFCMNotification(__('lang.booked_success_title'), __('lang.booked_success_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
+                $user->notify(new Reservation($booking, $user, __('lang.booking_approved_title'), __('lang.booking_approved_intro_body') . ' ' . $unit->title . ' ' . __('lang.booking_approved_desc_body')));
+                $this->sendFCMNotification(__('lang.booking_approved_title'), __('lang.booking_approved_intro_body') . ' ' . $unit->title . ' ' . __('lang.booking_approved_desc_body'), $user);
                 break;
 
             case BookingStatus::CANCELLED->value:
-                $user->notify(new Reservation($unit, $user, __('lang.booked_cancelled_title'), __('lang.booked_cancelled_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $user->notify(new Reservation($booking, $user, __('lang.booked_cancelled_title'), __('lang.booked_cancelled_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
                 $this->sendFCMNotification(__('lang.booked_cancelled_title'), __('lang.booked_cancelled_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
                 break;
 
             case BookingStatus::COMPLETED->value:
-                $user->notify(new Reservation($unit, $user, __('lang.booked_completed_title'), __('lang.booked_completed_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $user->notify(new Reservation($booking, $user, __('lang.booked_completed_title'), __('lang.booked_completed_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
                 $this->sendFCMNotification(__('lang.booked_completed_title'), __('lang.booked_completed_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
                 break;
 
             case BookingStatus::PENDING->value:
-                $user->notify(new Reservation($unit, $user, __('lang.booked_pending_title'), __('lang.booked_pending_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $user->notify(new Reservation($booking, $user, __('lang.booked_pending_title'), __('lang.booked_pending_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
                 $this->sendFCMNotification(__('lang.booked_pending_title'), __('lang.booked_pending_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
                 break;
 
             case BookingStatus::REJECTED->value:
-                $user->notify(new Reservation($unit, $user, __('lang.booked_rejected_title'), __('lang.booked_rejected_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
+                $user->notify(new Reservation($booking, $user, __('lang.booked_rejected_title'), __('lang.booked_rejected_body') . ' ' . $unit->title . ' ' . __('lang.thanks')));
                 $this->sendFCMNotification(__('lang.booked_rejected_title'), __('lang.booked_rejected_body') . ' ' . $unit->title . ' ' . __('lang.thanks'), $user);
                 break;
         }

@@ -759,6 +759,13 @@ return [
     'booking_pending_intro_body' => 'We hope you are in good health and well-being. We would like to inform you that a booking request for a unit at ',
     'booking_pending_desc_body' => 'has been received, and the booking amount has been successfully paid. The provided data is currently being reviewed, and the booking will be confirmed as soon as possible. Thank you for choosing our service and trusting us. We look forward to providing you with the best services.',
     'wish_you_a_good_day' => 'Wish you a good day!',
+
+
+    'booking_approved_intro_body' => 'We hope this message finds you in good health and high spirits. We are pleased to inform you that your booking has been reviewed and a unit has been successfully reserved at',
+    'booking_approved_desc_body' => 'Thank you for choosing our service.',
+    'see_booking_unit_info' => 'View Booking Details and Place Information',
+    'booking_approved_title' => 'Unit Booking Successfully Confirmed and Approved',
+
     'booked_success_title' => 'Unit booked successfully',
     'booked_cancelled_title' => 'Unit booking cancelled successfully',
     'booked_completed_title' => 'Unit booking approved successfully',
@@ -887,5 +894,7 @@ return [
     'response_rate' => 'Response rate',
     'fast_response' => 'Fast response - within a few hours',
     'location_on_map' => 'The Location Coordinates on the Map',
-    'see_location_on_map' => 'Explore the Location in Detail on Google Maps'
+    'see_location_on_map' => 'Explore the Location in Detail on Google Maps',
+    'trouble_text' => 'If you are having trouble clicking the button',
+    'trouble_text_2' => ', copy and paste the link below into your web browser:',
 ];
