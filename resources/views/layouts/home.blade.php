@@ -150,17 +150,18 @@
                                 </div>
                             </div>
                         </div>
+                        <ul class="list-group custom-scroll">
                         @forelse (auth()->user()->unreadNotifications  as $notification)
                        
                         <li class="my-2">
-                            <a href="{{route('profile.edit')}}" class="dropdown-item white-space-normal bg-light">
-                                <p class="fw-bold mb-0 pb-0">
+                            <a href="{{!isset($notification->data['action'])?:$notification->data['action']}}" class="dropdown-item white-space-normal bg-light">
+                                <p class="fs-6 fw-bold mb-0 pb-0">
                                     {{$notification->data['title']}}
                                 </p>
-                                <p class="mb-0 pb-0 text-secondary fw-bold">
+                                <p class="fs-6 mb-0 pb-0 text-secondary fw-bold">
                                     {{$notification->data['body']}}
                                 </p>
-                                <p class="text-secondary mt-0 pt-0 text-end">
+                                <p class="fs-6 text-secondary mt-0 pt-0 text-end">
                                     {{Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
                                 </p>
                             </a>
@@ -170,7 +171,7 @@
                                 <p>{{__('lang.notifications.not_found')}}</p>
                             </div>
                         @endforelse
-                       
+                        </ul>
                        
                     </ul>
                 </div>    

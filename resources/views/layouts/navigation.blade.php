@@ -51,17 +51,18 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                                 </div>
                             </div>
                         </div>
+                        <ul class="list-group custom-scroll">
                         @forelse (auth()->user()->unreadNotifications  as $notification)
                        
                         <li class="my-2">
-                            <a href="{{route('profile.edit')}}" class="dropdown-item white-space-normal bg-light">
-                                <p class="fw-bold mb-0 pb-0">
+                            <a href="{{!isset($notification->data['action'])?:$notification->data['action']}}" class="dropdown-item white-space-normal bg-light">
+                                <p class="fw-bold mb-0 pb-0 fs-6">
                                     {{$notification->data['title']}}
                                 </p>
-                                <p class="mb-0 pb-0 text-secondary fw-bold">
-                                    {{$notification->data['body']}}
+                                <p class="mb-0 pb-0 text-secondary fw-bold fs-6">
+                                    {{isset($notification->data['action'])?$notification->data['action']:''}}
                                 </p>
-                                <p class="text-secondary mt-0 pt-0 text-end">
+                                <p class="text-secondary mt-0 pt-0 text-end fs-6">
                                     {{Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
                                 </p>
                             </a>
@@ -72,7 +73,7 @@ class="navbar navbar-expand-lg  sticky-top navbar-light bg-nav-transparent bg-cu
                             </div>
                         @endforelse
                        
-                       
+                    </ul>
                     </ul>
                 </div>    
             </li>

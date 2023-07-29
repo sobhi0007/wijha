@@ -73,6 +73,7 @@ class Reservation extends Notification
         return [
            'title' => $this->title,
            'body'=> $this->body,
+           'action'=>route('user.reservations.details',['booking'=>$this->booking->id]),
         ];
     }
 }

@@ -290,8 +290,14 @@
 
 
                                         <div class="row my-4">
-                                            <div class="col-12 text-muted my-1 "><i
-                                                class="fa fa-envelope fa-fw me-1"></i> <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a></div>
+                                            <div class="col-12 text-muted my-1 ">
+                                                <i class="fa fa-envelope fa-fw me-1"></i>
+                                                <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a>
+                                            </div>
+                                            <div class="col-12 text-muted my-1 ">
+                                                <i class="fa fa-phone fa-fw me-1"></i>
+                                                <a class="text-decoration-none" href="tel:{{$unit->user->phone}}">{{$unit->user->phone}}</a>
+                                            </div>
                                             <div class="col-12 text-muted my-1 "><i
                                                     class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
                                                 .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>

@@ -306,5 +306,8 @@ body {
       /* Additional positioning properties can be added here */
     }
 
-    
+    .custom-scroll{
+        overflow-y: scroll;
+        height: 400px;
+    }
   }

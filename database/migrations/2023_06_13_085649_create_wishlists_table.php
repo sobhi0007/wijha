@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('unit_id');
+            $table->integer('unit_id')->unsigned()->nullable()->default(12);
             $table->foreign('unit_id')->references('id')->on('units');
             $table->timestamps();
         });

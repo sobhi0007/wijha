@@ -49,7 +49,7 @@ class PayController extends Controller
           'original_price'=>$unit->price,
           'vat'=>0,
           'total_price'=>($unit->price+0)*$days,
-          'status'=> BookingStatus::PENDING,
+          'status'=> BookingStatus::APPROVED,
           'user_id'=>auth()->user()->id,
           'unit_id'=>$unit->id,
       ]);
@@ -64,8 +64,8 @@ class PayController extends Controller
       ]);
 
       // $userSessionId = Session::getId();
-      $this->sendFCMNotification( __('lang.booked_pending_title'),  __('lang.booking_pending_intro_body').' '.$unit->title.' '.__('lang.booking_pending_desc_body'));
-      auth()->user()->notify( new Reservation($booking , auth()->user() , __('lang.booked_pending_title'), __('lang.booking_pending_intro_body').' '.$unit->title.' '.__('lang.booking_pending_desc_body')));
+      $this->sendFCMNotification( __('lang.booking_approved_title'),  __('lang.booking_approved_intro_body').' '.$unit->title.' '.__('lang.booking_approved_desc_body'));
+      auth()->user()->notify( new Reservation($booking , auth()->user() , __('lang.booking_approved_title'), __('lang.booking_approved_intro_body').' '.$unit->title.' '.__('lang.booking_approved_desc_body')));
      
       return redirect()->to(  URL::temporarySignedRoute(
         'home.paymentSuccess', now()->addMinutes(1))
