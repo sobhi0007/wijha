@@ -31,10 +31,17 @@ class OwnerLoginRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ];
+        if( filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)){
+            return [
+                'emailOrPhone' => ['required', 'string', 'email'],
+                'password' => ['required', 'string'],
+            ];
+        }else{
+            return [
+                'emailOrPhone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
+                'password' => ['required', 'string'],
+            ];
+        }
     }
 
     /**
@@ -47,19 +54,20 @@ class OwnerLoginRequest extends FormRequest
     public function authenticate(String $guard = 'web')
     {
         $this->ensureIsNotRateLimited();
-
-        $user = User::where('email', $this->email)->first();
+        $emailOrPhone = filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)? 'email':'phone';
+        $user = User::where($emailOrPhone, $this->emailOrPhone)->first();
         if ($user?->type == UserType::OWNER && $user?->approval != UserApproval::APPROVED) {
             throw ValidationException::withMessages([
-                'email' => trans('messages.owner_not_approved'),
+                'emailOrPhone' => trans('messages.owner_not_approved'),
             ]);
         }
 
-        if (!Auth::guard($guard)->attempt(['email' => $this->email, 'password' => $this->password, 'type' => UserType::OWNER->value, 'approval' => UserApproval::APPROVED->value], $this->boolean('remember'))) {
+     
+        if (!Auth::guard($guard)->attempt([$emailOrPhone => $this->emailOrPhone, 'password' => $this->password, 'type' => UserType::OWNER->value, 'approval' => UserApproval::APPROVED->value], $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                $emailOrPhone => trans('auth.failed'),
             ]);
         }
 

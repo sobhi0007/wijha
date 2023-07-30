@@ -24,9 +24,9 @@
         <x-auth-validation-errors class="mb-3" :errors="$errors" />
 
         <div class="form-group">
-            <label for="inputEmail" class="sr-only">{{ __('lang.email') }}</label>
-            <input type="email" id="inputEmail" class="form-control form-control-lg" placeholder="{{ __('lang.email') }}"
-                required="" autofocus="" name="email" value="{{ old('email') }}">
+            <label for="inputemailOrPhone" class="sr-only">{{ __('lang.emailOrPhone') }}</label>
+            <input type="emailOrPhone" id="inputemailOrPhone" class="form-control form-control-lg" placeholder="{{ __('lang.emailOrPhone') }}"
+                required="" autofocus="" name="emailOrPhone" value="{{ old('emailOrPhone') }}">
         </div>
 
         <div class="form-group">
