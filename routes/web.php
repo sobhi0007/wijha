@@ -247,3 +247,8 @@ Route::prefix('owner')->name('owner.')->group(function () {
 
     require __DIR__ . '/ownerAuth.php';
 });
+
+
+Route::get('/phone', function(){
+    return view('home.phone');
+});
