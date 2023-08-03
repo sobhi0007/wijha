@@ -44,5 +44,8 @@ Route::prefix('owner')->middleware(['OwnerApiLocalization', 'OwnerApiSecretKey']
         ##------------------------------------------------------- UNITS
         Route::get('/units', [UnitController::class, 'units']);
         Route::get('/units/{code}', [UnitController::class, 'show']);
+        Route::get('/unit/create/info', [UnitController::class, 'createInfo']);
+        Route::post('/unit/store', [UnitController::class, 'store']);
+        Route::post('/unit/{unit:code}', [UnitController::class, 'update']);
     });
 });

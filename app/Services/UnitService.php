@@ -35,11 +35,13 @@ class UnitService
                 ]);
             }
         }
+      
         if (isset($data['images'])) {
             foreach ($data['images'] as $image) {
-                $unit->addMedia($image)->toMediaCollection('images');
+             $unit->addMedia($image)->toMediaCollection('images');
             }
         }
+        return $unit;
     }
 
     public function update($unit, $data)
