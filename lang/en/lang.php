@@ -897,4 +897,5 @@ return [
     'see_location_on_map' => 'Explore the Location in Detail on Google Maps',
     'trouble_text' => 'If you are having trouble clicking the button',
     'trouble_text_2' => ', copy and paste the link below into your web browser:',
+    'emailOrPhone'=>'Email Or Phone Number'
 ];
