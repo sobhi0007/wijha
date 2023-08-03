@@ -14,10 +14,10 @@
                     <hr class="title-hr">
                     <div class="form-floating">
 
-                        <input name="email" value="{{ old('email') }}" required autofocus dir="rtl" type="email"
-                            class="form-control  rounded-lg text-start" id="Email" placeholder="البريد الالكتروني">
-                        <label for="Email" class="form-label text-muted fw-bold">{{__('lang.email')}}</label>
-                        @error('email')
+                        <input name="emailOrPhone" value="{{ old('emailOrPhone') }}" required autofocus dir="rtl" type="emailOrPhone"
+                            class="form-control  rounded-lg text-start" id="emailOrPhone" placeholder="البريد الالكتروني">
+                        <label for="emailOrPhone" class="form-label text-muted fw-bold">{{__('lang.emailOrPhone')}}</label>
+                        @error('emailOrPhone')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

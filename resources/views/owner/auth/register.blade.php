@@ -36,6 +36,12 @@
         </div>
 
         <div class="form-group">
+            <label for="phone" class="sr-only">{{__('lang.phone')}}</label>
+            <input type="phone" id="phone" class="form-control form-control-lg" placeholder="{{__('lang.phone')}}"
+                required="" name="phone" value="{{ old('phone') }}">
+        </div>
+
+        <div class="form-group">
             <label for="inputPassword" class="sr-only">{{ __('lang.password') }}</label>
             <input type="password" id="inputPassword" class="form-control form-control-lg"
                 placeholder="{{ __('lang.password') }}" name="password" required>

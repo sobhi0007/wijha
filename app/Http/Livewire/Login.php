@@ -10,15 +10,26 @@ use App\Providers\RouteServiceProvider;
 class Login extends Component
 {
     public $password;
-    public $email;
+    public $emailOrPhone;
  
-    protected $rules = [
-        'password' => 'required|min:8',
-        'email' => 'required|email',
-    ];
+    protected $rules =  ( filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL))?
+         [
+            'emailOrPhone' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ]
+        :
+         [
+            'emailOrPhone' => ['required', 'min:11', 'max:20'],
+            'password' => ['required', 'string'],
+        ];
+    
+
+        
  
     public function submit()
     {   
+        $emailOrPhone = filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)? 'email':'phone';
+     dd($emailOrPhone);
         if (Auth::attempt($this->validate())) {
             request()->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::HOME);

@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Auth\Events\Lockout;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\RateLimiter;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Auth\Events\Lockout;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
@@ -28,10 +29,17 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ];
+        if( filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)){
+            return [
+                'emailOrPhone' => ['required', 'string', 'email'],
+                'password' => ['required', 'string'],
+            ];
+        }else{
+            return [
+                'emailOrPhone' => ['required', 'min:11', 'max:20'],
+                'password' => ['required', 'string'],
+            ];
+        }
     }
 
     /**
@@ -41,20 +49,23 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate()
+    public function authenticate(String $guard = 'web')
     {
         $this->ensureIsNotRateLimited();
+        $emailOrPhone = filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)? 'email':'phone';
+        $user = User::where($emailOrPhone, $this->emailOrPhone)->first();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (!Auth::guard($guard)->attempt([$emailOrPhone => $this->emailOrPhone, 'password' => $this->password], $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'emailOrPhone' => trans('auth.failed'),
             ]);
         }
 
         RateLimiter::clear($this->throttleKey());
     }
+
 
     /**
      * Ensure the login request is not rate limited.
