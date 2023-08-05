@@ -15,6 +15,7 @@ class Register extends Component
 
     
     public $email;
+    public $phone;
     public $name;
     public $password;
     public $password_confirmation;
@@ -24,6 +25,7 @@ class Register extends Component
         return  [
             'name' => 'required|string|max:100',
             'email' => 'required|string|email|max:100|unique:users',
+            'phone' => ['required',  'min:11' ,'max:20', 'unique:' . User::class],
             'password' => 'required|confirmed|min:8',
         ];
     }
@@ -34,6 +36,7 @@ class Register extends Component
         $user = User::create([
             'name' => trim($this->name),
             'email' => trim($this->email),
+            'phone' => $this->phone,
             'password' => trim($this->password),
             'type' => UserType::USER,
             'approval' => UserApproval::PENDING,

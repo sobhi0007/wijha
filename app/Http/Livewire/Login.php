@@ -11,30 +11,27 @@ class Login extends Component
 {
     public $password;
     public $emailOrPhone;
- 
-    protected $rules =  ( filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL))?
-         [
-            'emailOrPhone' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ]
-        :
-         [
-            'emailOrPhone' => ['required', 'min:11', 'max:20'],
+
+    public function rules()
+    {
+        return [
+            'emailOrPhone' => filter_var($this->emailOrPhone, FILTER_VALIDATE_EMAIL)
+                ? ['required', 'string', 'email']
+                : ['required', 'min:11', 'max:20'],
             'password' => ['required', 'string'],
         ];
-    
-
-        
+    }     
  
     public function submit()
     {   
-        $emailOrPhone = filter_var($this->request->get('emailOrPhone'),FILTER_VALIDATE_EMAIL)? 'email':'phone';
-     dd($emailOrPhone);
-        if (Auth::attempt($this->validate())) {
+        $this->validate();
+        $emailOrPhone = filter_var($this->emailOrPhone,FILTER_VALIDATE_EMAIL)? 'email':'phone';
+    
+        if (Auth::guard()->attempt([$emailOrPhone => $this->emailOrPhone, 'password' => $this->password])) {
             request()->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::HOME);
         } else {
-            $this->addError('email', __('auth.failed'));
+            $this->addError('emailOrPhone', __('auth.failed'));
         }
     }
 

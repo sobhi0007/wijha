@@ -31,6 +31,23 @@
                                                 </div>
                                             </div>
                                             
+
+
+                                            <div class="my-3">
+                                                <div class="form-floating">
+                                                    <input wire:model="phone" dir="rtl" type="phone"
+                                                        class="form-control  rounded-lg text-start" id="phone"
+                                                        placeholder="كلمه السر" 
+                                                        required>
+                                                    <label for="phone"
+                                                        class="form-label text-muted fw-bold">{{__('lang.phone')}}</label>
+                                                    @error('phone')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
                                             <div class="my-3">
                                                 <div class="form-floating">
                                                     <input wire:model="password" dir="rtl" type="password"
