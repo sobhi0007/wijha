@@ -28,11 +28,18 @@ class LoginUserRequest extends FormRequest
     public function rules()
     {
      
-        return [
-           
-            'email' => 'required|email',
-            'password' => 'required|min:8|max:12',
-        ];
+        if( filter_var($this->emailOrPhone,FILTER_VALIDATE_EMAIL)){
+          return  [
+                'emailOrPhone' => ['required', 'string', 'email'],
+                'password' => ['required', 'string'],
+            ];
+        }else{
+          return  [
+                'emailOrPhone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
+                'password' => ['required', 'string'],
+            ];
+        }
+
     }
 
 

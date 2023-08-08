@@ -44,10 +44,12 @@ use Illuminate\Validation\ValidationException;
      */
     public function loginUser(LoginUserRequest $request)
     {
-        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password, 'type' => 0])) {
-            return $this->APIResponse(null, ['login_failed' => __('lang.login_failed')], 401, false, 'Unauthorized error');
+      
+        $emailOrPhone = filter_var($request->emailOrPhone,FILTER_VALIDATE_EMAIL)? 'email':'phone';
+        if (!Auth::attempt([$emailOrPhone => $request->emailOrPhone, 'password' => $request->password, 'type' => 0])) {
+            return $this->APIResponse(null, ['login_failed' => $emailOrPhone == 'email'? __('lang.login_email_failed'):__('lang.login_phone_failed')], 401, false, 'Unauthorized error');
         }
-        $user = User::where('email', $request->email)->first();
+        $user = User::where( $emailOrPhone , $request->emailOrPhone)->first();
         return $this->APIResponse(['token' => $user->createToken("API TOKEN")->plainTextToken], null, 200, true, 'User Logged In Successfully');
     }
 

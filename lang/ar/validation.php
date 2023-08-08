@@ -151,7 +151,8 @@ return [
             'check_out'=>'موعد المغادرة',
             'phone'=>'الهاتف',
             'message'=>'الرساله',
-            'current_password'=>'كلمه السر الحاليه'
+            'current_password'=>'كلمه السر الحاليه',
+            'emailOrPhone'=>'البريد الالكتروني او رقم الهاتف'
         ],
   
 ];
