@@ -21,7 +21,7 @@ class UnitResource extends JsonResource
     $capacityName = $this->capacity ? ('name_'.app()->getLocale() == 'name_ar') ? $this->capacity->name_ar : $this->capacity->name_en : null;
     $badgeName = $this->badge ? ('name_'.app()->getLocale() == 'name_ar') ? $this->badge->name_ar : $this->badge->name_en : null;
     $personName = $this->person ? ('name_'.app()->getLocale() == 'name_ar') ? $this->person->name_ar : $this->person->name_en : null;
-    
+    $owner = $this->user;
     return [
         'code' => $this->code,
         'title' => $this->title,
@@ -29,7 +29,7 @@ class UnitResource extends JsonResource
         'price' => $this->price,
         'coordinates' => $this->coordinates,
         'city' => $cityName,
-        'owner' => $this->owner,
+        'owner' => $owner,
         'district' => $districtName,
         'category' => $categoryName,
         'type' => $typeName,
