@@ -9,6 +9,7 @@ use App\Http\Controllers\API\UnitController;
 use App\Http\Controllers\API\FilterController;
 use App\Http\Controllers\API\SearchController;
 use App\Http\Controllers\API\BookingController;
+use App\Http\Controllers\API\MessageController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DistrictController;
 use App\Http\Controllers\API\WishlistController;
@@ -62,6 +63,9 @@ Route::group(['middleware' => ['SecretKey', 'CheckLang']], function () {
 
     // booking
     Route::get('/units/{code}/booked-dates', [UnitController::class, 'getBookedUnitDates']);
+
+
+    Route::post('/contact-us', [MessageController::class, 'store']);
 
     // fcm token
     Route::post('/fcm_token', [AuthController::class, 'getFcmToken']);

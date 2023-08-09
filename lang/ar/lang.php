@@ -716,7 +716,8 @@ return [
     */
     'welcome' => 'مرحبا !',
     'see_more'                     => 'شاهد المزيد',
-    'login_failed'                 => 'البريد الالكتروني او كلمه السر غير صحيح.',
+    'login_email_failed'                 => 'البريد الالكتروني او كلمه السر غير صحيح.',
+    'login_phone_failed'                 => 'رقم الهاتف  او كلمه السر غير صحيح.',
     'all_rights_reserved'          => 'جميع الحقوق محفوظه ©',
     'customer_service'             => 'خدمه العملاء',
     'contact_us'                   => 'تواصل معنا',

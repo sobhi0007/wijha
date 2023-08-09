@@ -33,6 +33,7 @@ class CreateUserRequest extends FormRequest
         return [
             'name' => 'required|min:2|max:40',
             'email' => 'required|email|unique:users,email',
+            'phone' =>'required|regex:/^([0-9\s\-\+\(\)]*)$/|unique:users,phone',
             'password' => 'required|min:8|max:12|confirmed',
             'password_confirmation' => 'required',
             'fcm_token'=> 'nullable'

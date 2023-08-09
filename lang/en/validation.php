@@ -170,7 +170,8 @@ return [
     */
 
     'attributes' => [
-        'current password'=>'current password'
+        'current password'=>'current password',
+        'emailOrPhone'=>'Email or phone'
     ],
 
 ];
