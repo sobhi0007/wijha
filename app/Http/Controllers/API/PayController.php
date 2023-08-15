@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CityResource;
 use App\Http\Resources\UnitResource;
 use Laravel\Sanctum\PersonalAccessToken;
+use Illuminate\Support\Facades\Notification;
 
 
 class PayController extends Controller{
@@ -109,20 +110,23 @@ class PayController extends Controller{
           $check_in=$request->check_in;
           $check_out=$request->check_out;
 
-          Booking::create([
+          $booking= Booking::create([
             'reference_number' => $unit->code.'-'.time(),
             'from_datetime' => $check_in,
             'to_datetime' => $check_out,
             'original_price'=>$unit->price,
             'vat'=>0,
             'total_price'=>$request->amount/100,
-            'status'=> BookingStatus::PENDING,
+            'status'=> BookingStatus::APPROVED,
             'user_id'=>$user->id,
             'unit_id'=>$unit->id,
         ]);
     
-           $user->notify( new Reservation($unit , $user , __('lang.booked_success_title'), __('lang.booked_success_body').' '.$unit->title.' '.__('lang.thanks')));
-           return $this->APIResponse(null , null , 200 , true ,'Unit booked successfully. ');
+
+          $this->sendFCMNotification( __('lang.booking_approved_title'),  __('lang.booking_approved_intro_body').' '.$unit->title.' '.__('lang.booking_approved_desc_body'));
+          $user->notify( new Reservation($booking , $user , __('lang.booking_approved_title'), __('lang.booking_approved_intro_body').' '.$unit->title.' '.__('lang.booking_approved_desc_body')));
+     
+
         }
       }
 }
