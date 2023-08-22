@@ -209,48 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12" hidden>
-                    <div class="card mb-3 rounded-lg col-12  overflow-hidden ">
-                        <div class="row g-0">
-                            <div class="col-md-12">
-                                <div class="card-body p-4">
-                                    <h2 class="fw-bold mt-4"> Room Rates</h2>
-                                    <span class="text-muted">Prices may increase on weekends or holidays</span>
-                                    <hr class="mt-0" width="10%">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="row stripped-rows py-3  rounded text-muted fw-bold ">
-                                                <div class="col-6 ">Monday - Thursday</div>
-                                                <div class="col-6 text-end ">$199</div>
-                                            </div>
-                                            <div class="row stripped-rows py-3  rounded text-muted fw-bold ">
-                                                <div class="col-6 ">Friday - Sunday</div>
-                                                <div class="col-6 text-end ">$255</div>
-                                            </div>
-                                            <div class="row stripped-rows py-3  rounded text-muted fw-bold ">
-                                                <div class="col-6 ">Sunday - Monday</div>
-                                                <div class="col-6 text-end ">$255</div>
-                                            </div>
-                                            <div class="row stripped-rows py-3 rounded text-muted fw-bold ">
-                                                <div class="col-6 ">Rent by month</div>
-                                                <div class="col-6 text-end ">-8.34 %</div>
-                                            </div>
-                                            <div class="row stripped-rows py-3 rounded text-muted fw-bold ">
-                                                <div class="col-6 ">1 night</div>
-                                                <div class="col-6 text-end ">$199</div>
-                                            </div>
-                                            <div class="row stripped-rows py-3 rounded text-muted fw-bold ">
-                                                <div class="col-6 ">Max number of nights</div>
-                                                <div class="col-6 text-end ">90 nights</div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="col-12">
                     <div class="card mb-3 rounded-lg col-12  overflow-hidden ">
                         <div class="row g-0">
@@ -258,7 +217,6 @@
                                 <div class="card-body p-4">
                                     <h2 class="fw-bold mt-4"> {{__('lang.host_Information')}}</h2>
                                     <hr width="10%" class="my-4">
-
                                     <div class="row  my-4">
                                         <div class=" mt-4  ">
                                             <div class="col-6">
@@ -284,33 +242,31 @@
 
                                         </div>
                                     </div>
-                                    <span class="text-muted fw-bold">Providing lake views, The Symphony 9 Tam Coc in
-                                        Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared
-                                        lounge, a garden and barbecue facilities.</span>
-
-
-                                        <div class="row my-4">
-                                            <div class="col-12 text-muted my-1 ">
-                                                <i class="fa fa-envelope fa-fw me-1"></i>
-                                                <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a>
-                                            </div>
-                                            <div class="col-12 text-muted my-1 ">
-                                                <i class="fa fa-phone fa-fw me-1"></i>
-                                                <a class="text-decoration-none" href="tel:{{$unit->user->phone}}">{{$unit->user->phone}}</a>
-                                            </div>
-                                            <div class="col-12 text-muted my-1 "><i
-                                                    class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
-                                                .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</div>
-                                            <div class="col-12 text-muted my-1 "><i
-                                                    class="fa-solid fa-message fa-fw me-1"></i> {{__('lang.response_rate')}} - 100%</div>
-                                            <div class="col-12 text-muted my-1 "><i
-                                                    class="fa-solid fa-clock fa-fw me-1"></i> {{__('lang.fast_response')}}  </div>
-                                        </div>
+                                    <div class="row my-4">
+                                        @auth
+                                            @if(auth()->user()->has('bookings')->pluck('id')->contains($unit->code))
+                                                <div class="col-12 text-muted my-1 ">
+                                                    <i class="fa fa-envelope fa-fw me-1"></i>
+                                                    <a class="text-decoration-none" href="mailto:{{$unit->user->email}}">{{$unit->user->email}}</a>
+                                                </div>
+                                                <div class="col-12 text-muted my-1 ">
+                                                    <i class="fa fa-phone fa-fw me-1"></i>
+                                                    <a class="text-decoration-none" href="tel:{{$unit->user->phone}}">{{$unit->user->phone}}</a>
+                                                </div>
+                                                <div class="col-12 text-muted my-1 ">
+                                                    <i class="fa-regular fa-calendar fa-fw me-1 "></i> {{__('lang.joined_in')
+                                                    .' ' .Carbon\Carbon::parse($user->created_at)->diffForHumans() }}
+                                                </div>
+                                                <div class="col-12 text-muted my-1 ">
+                                                    <i class="fa-solid fa-message fa-fw me-1"></i> {{__('lang.response_rate')}} - 100%</div>
+                                                <div class="col-12 text-muted my-1 ">
+                                                    <i class="fa-solid fa-clock fa-fw me-1"></i> {{__('lang.fast_response')}} 
+                                                </div>
+                                            @endIf
+                                        @endauth            
+                                    </div>
                                     <hr class="my-4 " width="10%">
-
-                                    <a href="{{route('owner.units',['user'=>$unit->user->id])}}"
-                                        class="btn bg-main text-light border rounded-lg py-2 px-4">{{__('lang.explore_owner_units')}}</a>
-
+                                    <a href="{{route('owner.units',['user'=>$unit->user->id])}}" class="btn bg-main text-light border rounded-lg py-2 px-4">{{__('lang.explore_owner_units')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -409,7 +365,7 @@
                                 </ul>
                             </div>
                             @endif
-                            <div class="col-12 row pt-5">
+                            <div class="row pt-5">
                                 <div class="col-6"><span class="text-muted h6">
                                         <span id="price">{{$unit->price}}</span>
                                         {{__('lang.currency')}}
