@@ -32,18 +32,20 @@
                         <div class="row">
                             <div class="col-6">
                                 <img class="  rounded-lg w-100" style="max-height: 200px;"
-                                    src="https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                    src="{{ $unit->getMedia('images')[0]->getFullUrl()}}"
                                     alt="" srcset="">
                             </div>
                             <div class="col-6">
                                 <div class="col-12 text-muted mt-2">{{$unit->title}} </div>
-                                <div class="col-12 fw-bold my-2">The Lounge & Bar</div>
-                                <div class="col-12 text-muted my-2">2 beds 路 2 baths</div>
                                 <hr width="25%">
-                                <div class="col-12">
-                                    <span class=""><i class="fa-solid fa-star text-warning"></i> <span
-                                            class="fw-bold">5.0</span> <span class="text-muted"> (28)</span></span>
-                                </div>
+                                <div class=" ">
+                                            <span class=""><i class="fa-solid fa-star text-warning"></i> <span
+                                                    class="fw-bold">{{$unit->avarage_rating}}</span> <span
+                                                    class="text-muted"> ({{$unit->total_rating}})</span></span>
+                                            <span class="mx-2"> . </span>
+                                            <span><img src="{{asset('assets/images/pin_orange.png')}} " width="20px"
+                                                    alt="" srcset=""> {{Lang::locale()=='en'?$unit->city->name_en:$unit->city->name_ar}} </span>
+                                        </div>
                             </div>
                         </div>
 

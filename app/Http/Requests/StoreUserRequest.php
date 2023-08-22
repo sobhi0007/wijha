@@ -26,6 +26,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name'           => 'required|string',
             'email'          => 'required|email|unique:users,email',
+            'phone'          => 'required|unique:users,phone',
             'password'       => 'sometimes|required|min:5|confirmed',
         ];
     }
@@ -40,6 +41,7 @@ class StoreUserRequest extends FormRequest
         return [            
             'name'           => __('lang.name'),
             'email'          => __('lang.email'),
+            'phone'          => __('lang.phone'),
             'password'       => __('lang.password'),
         ];
     }

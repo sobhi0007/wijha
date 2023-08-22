@@ -22,28 +22,49 @@
             </div>
         @endif
 
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.name') }}</label>
             <input type="text" class="border form-control" name="name"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.name') }}..." value="{{ $user->name }}">
         </div>
 
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.email') }}</label>
             <input type="email" class="border form-control" name="email"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.email') }}..." value="{{ $user->email }}">
         </div>
 
-        <div class="form-group col-12 col-md-6">
+
+           <div class="form-group col-12 col-md-4">
+            <label class="form-label">{{ __('lang.phone') }}</label>
+            <input type="phone" class="border form-control" name="phone"
+                placeholder="{{ __('lang.please_enter') }} {{ __('lang.phone') }}..." value="{{ $user->phone }}">
+        </div>
+
+
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.password') }}</label>
             <input type="password" class="border form-control" name="password"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.password') }}...">
         </div>
 
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.password_confirmation') }}</label>
             <input type="password" class="border form-control" name="password_confirmation"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.password_confirmation') }}...">
+        </div>
+
+        <div class="form-group col-12 col-md-4">
+            <label class="form-label">{{ __('lang.approval') }}</label>
+            <div name="approval">
+                <select class="form-control select2" name="approval">
+                    <option value="" selected>{{__("lang.approval")}}</option>
+                    @foreach (App\Enums\UserApproval::cases() as $item)
+                        <option value="{{ $item->value }}" @selected($user->approval == $item)>
+                            {{ $item->lang() }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
 
         @if ($user->type == App\Enums\UserType::OWNER)

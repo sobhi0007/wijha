@@ -5,16 +5,22 @@
 
     {{-- MODIFICATIONS FROM HERE --}}
     <div class="row">
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.name') }}</label>
             <input type="text" class="border form-control" name="name"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.name') }}...">
         </div>
 
-        <div class="form-group col-12 col-md-6">
+        <div class="form-group col-12 col-md-4">
             <label class="form-label">{{ __('lang.email') }}</label>
             <input type="email" class="border form-control" name="email"
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.email') }}...">
+        </div>
+
+         <div class="form-group col-12 col-md-4">
+            <label class="form-label">{{ __('lang.phone') }}</label>
+            <input type="phone" class="border form-control" name="phone"
+                placeholder="{{ __('lang.please_enter') }} {{ __('lang.phone') }}...">
         </div>
 
         <div class="form-group col-12 col-md-6">

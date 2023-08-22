@@ -37,6 +37,7 @@
                             <th class="text-primary" width="5%">#</th>
                             <th class="text-primary">{{ __('lang.name') }}</th>
                             <th class="text-primary">{{ __('lang.email') }}</th>
+                             <th class="text-primary">{{ __('lang.phone') }}</th>
                             <th class="text-primary">{{ __('lang.type') }}</th>
                             <th class="text-primary">{{ __('lang.status') }}</th>
                             <th class="text-primary" width="11%">{{ __('lang.actions') }}</th>
@@ -50,6 +51,7 @@
                                     <td>{{ $data['data']->firstItem() + $loop->index }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email ?? '' }}</td>
+                                    <td>{{ $item->phone ?? '' }}</td>
                                     <td>
                                         <span class="badge {{ $item->type->color() }} text-white">
                                             <i class="{{ $item->type->icon() }}"></i>
