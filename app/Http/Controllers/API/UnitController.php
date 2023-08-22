@@ -177,32 +177,39 @@ class UnitController extends Controller{
     
     
     public function findUnitsByCoordinates(Request $request){
-        
-   
       
-                
-            $units = Unit::
-            
-            whereRaw('(POW(units.coordinates->"$.lat" - ?, 2) + POW(units.coordinates->"$.long" - ?, 2)) <= POW(? / 111.045, 2)', [$request->lat, $request->long, $request->radius])
-            ->get();
-            
-       if ($units->count() > 0) {
-      foreach ($units as $unit) {
-         $images = $unit->getMedia('images');
-         $data=[];
-          foreach($images as $image){
-         $data[] =   $image->getUrl();
+    $lat = $request->lat;
+    $long = $request->long;
+    $radius = $request->radius;
+
+    $units = Unit::select('*')
+    ->whereRaw('(6371 * 
+        ACOS(
+            COS(RADIANS(90 - ?)) * 
+            COS(RADIANS(90 - JSON_UNQUOTE(JSON_EXTRACT(coordinates, "$.lat")))) * 
+            COS(RADIANS(? - JSON_UNQUOTE(JSON_EXTRACT(coordinates, "$.long")))) + 
+            SIN(RADIANS(90 - ?)) * 
+            SIN(RADIANS(90 - JSON_UNQUOTE(JSON_EXTRACT(coordinates, "$.lat"))))
+        )) <= ?', [$lat, $long, $lat, $radius])
+    ->get();
+
+
+
+      if ($units->count() > 0) {
+        foreach ($units as $unit) {
+        $images = $unit->getMedia('images');
+        $data=[];
+        foreach($images as $image){
+        $data[] =   $image->getUrl();
         }
         $unit['images'] = $data; 
+        }
+        return $this->APIResponse( UnitResource::collection($units) , null ,   200  , true  , 'All units belongs to coordinates');
+      }else{
+        return $this->APIResponse(null , null, 404 , true ,   'No data found .') ;
       }
- 
-    
-      return $this->APIResponse( UnitResource::collection($units) , null ,   200  , true  , 'All units belongs to coordinates');
-    }else{
-      return $this->APIResponse(null , null, 404 , true ,   'No data found .') ;
-    }
 
-        
+
     }
 
 }
