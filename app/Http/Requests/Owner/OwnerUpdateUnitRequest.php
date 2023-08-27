@@ -39,8 +39,9 @@ class OwnerUpdateUnitRequest extends FormRequest
             'basic.capacity_id'          => 'nullable|exists:capacities,id',
             'basic.person_id'            => 'nullable|exists:persons,id',
             'basic.badge_id'             => 'nullable|exists:badges,id',
-            'basic.bathrooms_number'      => 'required|numeric',
-            'basic.bedrooms_number'       => 'required|numeric',
+            'basic.bathrooms_number'     => 'required|numeric',
+            'basic.bedrooms_number'      => 'required|numeric',
+            'basic.activation'           => 'required',
             'pools'                      => 'nullable',
             'pools.*'                    => 'nullable',
             'views'                      => 'nullable',
@@ -122,6 +123,7 @@ class OwnerUpdateUnitRequest extends FormRequest
             'price.*'                    => __('lang.price'),
             'availability'               => __('lang.availability'),
             'availability.*'             => __('lang.availability'),
+            'basic.activation'           => __('lang.activation'),
         ];
     }
 }

@@ -28,6 +28,19 @@
                     <div class="border border-primary rounded p-2 col-12">
                         <div class="row">
 
+
+                            <div class="form-group col-12 col-md-3">
+                                <label class="form-label">{{ __('lang.activation') }}</label>
+                                <div name="basic[activation]">
+                                    <select class="form-control select2" name="basic[activation]">
+                                        <option value="" selected>{{ __('lang.select_activation') }}</option>
+                                        @foreach (App\Enums\UnitActivation::cases() as $item)
+                                        <option value="{{ $item->value }}" @selected($unit->activation == $item)>
+                                            {{ $item->lang() }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group col-12 col-md-4">
                                 <label class="form-label">{{ __('lang.city') }}</label>
                                 <div name="basic[city_id]">
